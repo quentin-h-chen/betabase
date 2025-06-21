@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 10px;
+    height: max-content;
+    background-color: #000000;
+    box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.6);
+}
+
+.navbar-content {
+    display: flex;
+    margin-left: auto; 
+}
+
+.nav-links {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+ul li {
+    margin-top: 7px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+ul li a {
+    font-family: "Zen Dots", sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+    color: white;
+}
+
+ul li a.active {
+    color: #FFC60B;
+    text-decoration: none;
+}
+
+.betabase-logo {
+    padding-left: 10px;
+    height: 40px;
+    margin-bottom: 5px;
+}
