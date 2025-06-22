@@ -1,0 +1,94 @@
+.sidebar {
+    display: flex;
+    grid-area: filter;
+    flex-direction: column;
+    width: 240px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
+    font-family: 'inter', sans-serif;
+}
+
+.sidebar hr {
+    background-color: #b1b1b1;
+    border: none;
+    height: 1px;
+    width: 100%;
+}
+
+.sidebar h2 {
+    padding-left: 1rem;
+    font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.filter-group label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.grade-range, .attempt-range {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+input[type='text'], input[type='number'] {
+    padding: 0.4rem;
+    color: black;
+    width: 2.8rem;
+    font-size: 1rem;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    border: none;
+}
+
+input[placeholder='Enter Address'] {
+    padding: 0.4rem;
+    color: black;
+    width: 8rem;
+    font-size: 1rem;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type='date'] {
+    padding: 0.4rem;
+    color: #929191;
+    width: 8rem;
+    font-size: 1rem;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    border: none;
+}
+
+input::placeholder{
+    color: #929191;
+}
+
+.filter-button {
+    font-size: 20px;
+    margin-top: 1rem;
+    width: 13rem;
+    height: 2rem;
+    color: black;
+    background-color: #FFC60B;
+    border-radius: 5px;
+    border-color: #FFC60B;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
