@@ -1,7 +1,7 @@
 import './Climbs.css'
 import '../components/SidebarFilter'
 import SidebarFilter from '../components/SidebarFilter';
-
+import ClimbCard from '../components/ClimbCard';
 
 export default function Climbs() {
     return (
@@ -27,7 +27,19 @@ export default function Climbs() {
                     </div>
                 </div>
                 <SidebarFilter />
-                <div className='climbs-grid'></div>
+                <div className='climbs-grid'>
+                    <ClimbCard grade="V2" type="Overhang" location="Hanger 18, Orange" date="06/10/2025" note="The crux is a cross reach for a crimp" />
+                    <ClimbCard grade="V8" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V7" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V1" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V4" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V9" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V10" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V3" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V5" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V6" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    <ClimbCard grade="V13" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                </div>
             </div>
         </div>
     );

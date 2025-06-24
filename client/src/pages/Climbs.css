@@ -2,6 +2,9 @@
     display: flex;
     padding: 1rem;
     font-family: 'inter', sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #F4F4F4;
 }
 
 .climbs-main {
@@ -9,9 +12,10 @@
     grid-template-areas: 
         'topbar topbar'
         'filter climbs';
-    grid-template-columns: 1fr 4.5fr;
+    grid-template-columns: 1fr 4.8fr;
+    grid-template-rows: auto 1fr;
+    max-height: calc(100vh - 140px);
     width: 100%;
-    height: 100%;
 }
 
 .climbs-header {
@@ -23,6 +27,7 @@
 }
 
 .climbs-header h2 {
+    font-size: 30px;
     padding-right: 1rem;
 }
 
@@ -30,9 +35,15 @@
     display: flex;
     align-items: center;
 }
+
+.tags-container label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .green-tag-bar {
     background-color: #68BC49;
-    width: 4rem;
+    width: 5rem;
     height: 1rem;
     margin-left: 0.5rem;
     margin-right: 1rem;
@@ -41,7 +52,7 @@
 
 .red-tag-bar {
     background-color: #EE4343;
-    width: 4rem;
+    width: 5rem;
     height: 1rem;
     margin-left: 0.5rem;
     margin-right: 1rem;
@@ -50,7 +61,7 @@
 
 .blue-tag-bar {
     background-color: #389EE8;
-    width: 4rem;
+    width: 5rem;
     height: 1rem;
     margin-left: 0.5rem;
     margin-right: 1rem;
@@ -59,7 +70,7 @@
 
 .purple-tag-bar {
     background-color: #66497D;
-    width: 4rem;
+    width: 5rem;
     height: 1rem;
     margin-left: 0.5rem;
     margin-right: 1rem;
@@ -68,7 +79,7 @@
 
 .black-tag-bar {
     background-color: #212121;
-    width: 4rem;
+    width: 5rem;
     height: 1rem;
     margin-left: 0.5rem;
     margin-right: 1rem;
@@ -81,10 +92,11 @@
 }
 
 .climbs-controls button {
+    font-size: 18px;
     background-color: #FFC60B;
     color: black;
     outline: none;
-    width: 5rem;
+    width: 7rem;
     border-radius: 5px;
     border-color: #FFC60B;
     padding: 0.4rem;
@@ -93,7 +105,27 @@
 .climbs-grid {
     grid-area: climbs;
     display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 1rem;
+    overflow-y: scroll;
+    
+    gap: 1rem;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
+}
+
+.climbs-grid::-webkit-scrollbar{
+    background-color: transparent;
+    width: 10px;
+}
+
+.climbs-grid::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.climbs-grid::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 15px;
 }
