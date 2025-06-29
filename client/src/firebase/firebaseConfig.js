@@ -8,7 +8,7 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAlvlzMM_mRs8LeBvue2-xb9c_7xXprUk0",
+  apiKey: "",
   authDomain: "betabase-170f0.firebaseapp.com",
   projectId: "betabase-170f0",
   storageBucket: "betabase-170f0.firebasestorage.app",
