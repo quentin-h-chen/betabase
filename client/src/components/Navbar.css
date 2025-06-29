@@ -8,6 +8,7 @@
     padding: 1rem;
     background-color: #000000;
     box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.6);
+    z-index: 10;
 }
 
 .navbar-content {

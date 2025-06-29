@@ -1,22 +1,24 @@
 import { useState } from "react";
 import './ProfileDropdown.css';
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileDropdown() {
     const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
 
     const handleSignIn = () => {
-    alert('Sign In clicked');
-    setOpen(false);
+        navigate('/login')
+        setOpen(false);
     };
 
     const handleSignOut = () => {
-    alert('Sign Out clicked');
-    setOpen(false);
+        alert('Sign Out clicked');
+        setOpen(false);
     };
 
     const handleChangePicture = () => {
-    alert('Change Picture clicked');
-    setOpen(false);
+        alert('Change Picture clicked');
+        setOpen(false);
     };
 
     return (

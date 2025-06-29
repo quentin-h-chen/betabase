@@ -1,0 +1,13 @@
+.google-button {
+    font-family: "Zen Dots", sans-serif;
+    font-size: 18px;
+    color: black;
+    background-color: #FFC60B;
+    border-radius: 5px;
+    border-color: #FFC60B;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.6);
+}
