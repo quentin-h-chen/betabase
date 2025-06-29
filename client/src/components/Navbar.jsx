@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
+import ProfileDropdown from './ProfileDropdown';
 
 export default function Navbar() {
     return (
@@ -11,6 +12,7 @@ export default function Navbar() {
                     <li><NavLink to="/climbs" className={({ isActive }) => isActive ? 'active' : ''}>Climbs</NavLink></li>
                     <li><NavLink to="/analysis" className={({ isActive }) => isActive ? 'active' : ''}>Analysis</NavLink></li>
                 </ul>
+                <ProfileDropdown />
             </div>
         </nav>
     )
