@@ -83,7 +83,8 @@ input::placeholder{
 }
 
 .filter-button {
-    font-size: 20px;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 18px;
     margin-top: 1rem;
     width: 13rem;
     height: 2rem;

@@ -1,0 +1,41 @@
+.add-climb-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    height: 100vh;
+}
+
+.climb-form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.6);
+}
+
+.add-climb-header {
+    font-family: "Zen Dots", sans-serif;
+}
+
+.climb-label {
+    font-size: 18px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+}
+
+.submit-form {
+    color: black;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 18px;
+    background-color: #FFC60B;
+    border-radius: 5px;
+    border-color: #FFC60B;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.6);
+}

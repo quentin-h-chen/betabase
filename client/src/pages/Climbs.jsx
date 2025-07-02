@@ -1,9 +1,15 @@
-import './Climbs.css'
-import '../components/SidebarFilter'
+import './Climbs.css';
 import SidebarFilter from '../components/SidebarFilter';
 import ClimbCard from '../components/ClimbCard';
+import { useNavigate } from 'react-router-dom';
 
-export default function Climbs() {
+export default function Climbs({ climbs, setClimbs }) {
+    const navigate = useNavigate();
+
+    const handleDelete = (indexToDelete) => {
+        setClimbs((prev) => prev.filter((_, index) => index !== indexToDelete));
+    };
+
     return (
         <div className='climbs-page'>
             <div className='climbs-main'>
@@ -22,23 +28,31 @@ export default function Climbs() {
                         <div className='black-tag-bar' />
                     </div>
                     <div className='climbs-controls'>
-                        <button>Add Climb</button>
+                        <button onClick={() => navigate('/add-climb')}>Add Climb</button>
                         <button>Sort</button>
                     </div>
                 </div>
+
                 <SidebarFilter />
+
                 <div className='climbs-grid'>
-                    <ClimbCard grade="V2" type="Overhang" location="Hanger 18, Orange" date="06/10/2025" note="The crux is a cross reach for a crimp" />
-                    <ClimbCard grade="V8" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V7" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V1" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V4" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V9" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V10" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V3" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V5" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V6" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
-                    <ClimbCard grade="V13" type="Overhang" location="Rockreation, Santa Ana" date="06/13/2025" note="Very endurance heavy" />
+                    {climbs && climbs.length > 0 ? (
+                        climbs.map((climb, index) => (
+                            <ClimbCard
+                                key={index}
+                                grade={climb.grade}
+                                type={climb.type}
+                                location={climb.location}
+                                date={climb.date}
+                                note={climb.note} 
+                                onDelete={()=> handleDelete(index)}
+                            />
+                        ))
+                    ) : (
+                        <div className='no-climbs'>
+                            <p className='message'>No climbs added yet</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

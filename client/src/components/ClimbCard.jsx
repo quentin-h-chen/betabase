@@ -1,6 +1,6 @@
 import './ClimbCard.css'
 
-export default function ClimbCard( {grade, type, location, date, note} ) {
+export default function ClimbCard( {grade, type, location, date, note, onDelete} ) {
     const getGradeClass = (grade) => {
         if (["VB", "V0", "V1"].includes(grade)) return "vb-v1-climb-card";
         if (["V2", "V3", "V4"].includes(grade)) return "v2-v4-climb-card";
@@ -12,13 +12,16 @@ export default function ClimbCard( {grade, type, location, date, note} ) {
     const gradeClass = getGradeClass(grade)
     
     return (
-        <div className={` climb-card ${gradeClass}`}>
+        <div className={`climb-card ${gradeClass}`}>
             <img src='/example.jpg' alt='bouldering-route' className='route-image' />
             <p><strong>Grade:</strong> {grade}</p>
             <p><strong>Type:</strong> {type}</p>
             <p><strong>Location:</strong> {location}</p>
             <p><strong>Date:</strong> {date}</p>
             <p><strong>Note:</strong> {note}</p>
+            <div className='delete'>
+                <button className='delete-button' onClick={onDelete}>Delete</button>
+            </div>
         </div>
     );
 }

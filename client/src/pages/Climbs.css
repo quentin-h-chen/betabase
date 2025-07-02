@@ -92,11 +92,12 @@
 }
 
 .climbs-controls button {
+    font-family: "Zen Dots", sans-serif;
     font-size: 18px;
     background-color: #FFC60B;
     color: black;
     outline: none;
-    width: 7rem;
+    width: 8rem;
     border-radius: 5px;
     border-color: #FFC60B;
     padding: 0.4rem;
@@ -128,4 +129,12 @@
 .climbs-grid::-webkit-scrollbar-thumb {
     background-color: #000000;
     border-radius: 15px;
+}
+
+.no-climbs {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    font-size: 18px;
 }

@@ -5,7 +5,6 @@
     justify-items: center;
     padding: 50px;
     height: 100vh;
-    box-sizing: border-box;
 }
 
 .login-page input{
