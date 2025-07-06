@@ -29,16 +29,22 @@ ul li {
     padding-left: 30px;
 }
 
-ul li a {
+.nav-links li a {
+    position: relative;
     font-family: "Zen Dots", sans-serif;
     font-size: 22px;
     text-decoration: none;
     color: white;
+    transition: 0.3s ease;
 }
 
-ul li a.active {
+.nav-links li a.active {
     color: #FFC60B;
     text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #FFC60B; 
 }
 
 .betabase-logo {
