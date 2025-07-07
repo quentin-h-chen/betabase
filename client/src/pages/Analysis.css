@@ -1,0 +1,23 @@
+.analysis-page {
+    display: flex;
+    padding: 1rem;
+    font-family: 'inter', sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #F4F4F4;
+    background-image: url('/red-slab.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+.analysis-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 15px;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
+}

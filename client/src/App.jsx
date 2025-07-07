@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import AddClimb from './pages/AddClimb';
 import { useState } from 'react';
+import About from './pages/About';
 
 export default function App() {
   const [climbs, setClimbs] = useState([]);
@@ -27,6 +28,7 @@ export default function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/add-climb' element={<AddClimb onAddClimb={handleAddClimb} />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </div>
   );

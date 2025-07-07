@@ -6,6 +6,10 @@
     padding: 50px;
     height: 100vh;
     box-sizing: border-box;
+    background-image: url('/chalk-up.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .register-page input{
