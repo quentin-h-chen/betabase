@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function AddClimb({ onAddClimb }) {
     const [grade, setGrade] = useState('');
     const [type, setType] = useState('');
+    const [attempts, setAttempts] = useState('');
     const [location, setLocation] = useState('');
     const [date, setDate] = useState('');
     const [note, setNote] = useState('');
@@ -13,7 +14,7 @@ export default function AddClimb({ onAddClimb }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newClimb = { grade, type, location, date, note };
+        const newClimb = { grade, type, attempts, location, date, note };
 
         if (onAddClimb) {
             onAddClimb(newClimb);
@@ -33,6 +34,9 @@ export default function AddClimb({ onAddClimb }) {
 
                     <label className='climb-label'>Type:</label>
                     <input value={type} onChange={(e) => setType(e.target.value)} required />
+
+                    <label className='climb-label'># of Attempts:</label>
+                    <input value={attempts} onChange={(e) => setAttempts(e.target.value)} required />
 
                     <label className='climb-label'>Location:</label>
                     <input value={location} onChange={(e) => setLocation(e.target.value)} required />

@@ -42,6 +42,7 @@ export default function Climbs({ climbs, setClimbs }) {
                                 key={index}
                                 grade={climb.grade}
                                 type={climb.type}
+                                attempts={climb.attempts}
                                 location={climb.location}
                                 date={climb.date}
                                 note={climb.note} 

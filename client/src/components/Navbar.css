@@ -35,7 +35,7 @@ ul li {
     font-size: 22px;
     text-decoration: none;
     color: white;
-    transition: 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .nav-links li a.active {
@@ -45,6 +45,21 @@ ul li {
 
 .nav-links li a:hover {
     color: #FFC60B; 
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ff0000;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
 }
 
 .betabase-logo {
