@@ -8,9 +8,11 @@ export default function Home() {
         <div className='home-page'>
             <div className='main-content'>
                 <section className='hero'>
-                    <p className='hero-text'>Your stats.</p>
-                    <p className='hero-text'>Your beta.</p>
-                    <p className='hero-text'>Your journey.</p>
+                    <p className='hero-text'>
+                        Your stats.<br></br>
+                        Your beta.<br></br>
+                        Your journey.
+                    </p>
                     <div className='start-buttons'>
                         <button className='btn-primary' onClick={() => navigate('/climbs')}>Get Started</button>
                         <button className='btn-secondary' onClick={() => navigate('/about')}>Learn More</button>

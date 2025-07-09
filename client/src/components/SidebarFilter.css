@@ -3,7 +3,8 @@
     grid-area: filter;
     flex-direction: column;
     width: 240px;
-    background-color: #ffffff;
+    color: white;
+    background-color: #ffffff2f;
     border-radius: 10px;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
     font-family: 'inter', sans-serif;
@@ -92,5 +93,9 @@ input::placeholder{
     background-color: #FFC60B;
     border-radius: 5px;
     border-color: #FFC60B;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+.filter-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }

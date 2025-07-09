@@ -28,7 +28,7 @@ export default function Climbs({ climbs, setClimbs }) {
                         <div className='black-tag-bar' />
                     </div>
                     <div className='climbs-controls'>
-                        <button onClick={() => navigate('/add-climb')}>Add Climb</button>
+                        <button onClick={() => navigate('/add-climb')}>+</button>
                         <button>Sort</button>
                     </div>
                 </div>

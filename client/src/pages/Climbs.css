@@ -5,6 +5,10 @@
     height: 100vh;
     margin: 0;
     background-color: #F4F4F4;
+    background-image: url('/boulder-wall.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .climbs-main {
@@ -28,7 +32,7 @@
 }
 
 .climbs-header h2 {
-    color: #000000;
+    color: white;
     font-size: 30px;
     padding-right: 1rem;
 }
@@ -39,6 +43,7 @@
 }
 
 .tags-container label {
+    color: white;
     font-size: 18px;
     font-weight: bold;
 }
@@ -84,7 +89,7 @@
 }
 
 .black-tag-bar {
-    background-color: #212121;
+    background-color: #2b2b2b;
     width: 5rem;
     height: 1rem;
     margin-left: 0.5rem;
@@ -109,6 +114,11 @@
     padding: 0.4rem;
 }
 
+.climbs-controls button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
 .climbs-grid {
     grid-area: climbs;
     display: grid;
@@ -118,7 +128,7 @@
     overflow-y: scroll;
     
     gap: 1rem;
-    background-color: #ffffff;
+    background-color: #ffffff2f;
     border-radius: 10px;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
 }
@@ -133,7 +143,7 @@
 }
 
 .climbs-grid::-webkit-scrollbar-thumb {
-    background-color: #000000;
+    background-color: #00000079;
     border-radius: 15px;
 }
 
@@ -143,4 +153,8 @@
     justify-self: center;
     align-items: center;
     font-size: 18px;
+}
+
+.message {
+    color: white;
 }
