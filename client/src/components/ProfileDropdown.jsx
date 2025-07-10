@@ -29,7 +29,7 @@ export default function ProfileDropdown() {
     const handleSignOut = async () => {
         try {
             await signOut(auth);
-            alert('Signedd out successfully');
+            alert('Signed out successfully');
         } catch (error) {
             alert(error.message);
         }

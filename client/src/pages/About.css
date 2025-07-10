@@ -1,0 +1,67 @@
+.about-page {
+    display: flex;
+    padding: 1rem;
+    font-family: 'inter', sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #F4F4F4;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0)),
+    url('/bw-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+.about-container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.mission-container {
+    margin-bottom: 4rem;
+}
+
+.team-container {
+    margin-bottom: 4rem;
+}
+
+.tools-container {
+    margin-bottom: 4rem;
+}
+
+.about-container h2 {
+    position: relative;
+    font-size: 30px;
+    font-family: "Zen Dots", sans-serif;
+}
+
+.about-container h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFC60B;
+    border-radius: 2px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-areas: 
+        "picture name"
+        "picture bio"
+        "picture positions";
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    gap: 0 2rem;
+}
+
+.founder-picture {
+    grid-area: picture;
+    height: 200px;
+    border-radius: 15px;
+}

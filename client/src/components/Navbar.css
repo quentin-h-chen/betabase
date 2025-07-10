@@ -25,24 +25,45 @@
 
 ul li {
     margin-top: 7px;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
-ul li a {
+.nav-links li a {
+    position: relative;
     font-family: "Zen Dots", sans-serif;
     font-size: 22px;
     text-decoration: none;
     color: white;
+    transition: color 0.3s ease;
 }
 
-ul li a.active {
+.nav-links li a.active {
     color: #FFC60B;
     text-decoration: none;
 }
 
+.nav-links li a:hover {
+    color: #FFC60B; 
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ff0000;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
 .betabase-logo {
     padding-left: 10px;
-    height: 45px;
+    height: 40px;
     margin-bottom: 5px;
 }
