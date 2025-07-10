@@ -25,8 +25,8 @@
 
 ul li {
     margin-top: 7px;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .nav-links li a {

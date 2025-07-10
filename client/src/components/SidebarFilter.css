@@ -6,9 +6,9 @@
     color: white;
     background-color: #ffffff2f;
     border-radius: 10px;
+    border: 2px solid #ffffff38;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
     font-family: 'inter', sans-serif;
-    
 }
 
 .sidebar hr {

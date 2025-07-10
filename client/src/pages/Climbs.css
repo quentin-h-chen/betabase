@@ -32,6 +32,7 @@
 }
 
 .climbs-header h2 {
+    font-family: "Zen Dots", sans-serif;
     color: white;
     font-size: 30px;
     padding-right: 1rem;
@@ -130,6 +131,7 @@
     gap: 1rem;
     background-color: #ffffff2f;
     border-radius: 10px;
+    border: 2px solid #ffffff38;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
 }
 
