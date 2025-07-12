@@ -7,7 +7,7 @@ export default function Climbs({ climbs, setClimbs }) {
     const navigate = useNavigate();
 
     const handleDelete = (indexToDelete) => {
-        setClimbs((prev) => prev.filter((_, index) => index !== indexToDelete));
+        setClimbs((climbsSoFar) => climbsSoFar.filter((_, index) => index !== indexToDelete));
     };
 
     return (

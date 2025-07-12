@@ -5,7 +5,8 @@
     height: 100vh;
     margin: 0;
     background-color: #F4F4F4;
-    background-image: url('/grey-slab2.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0)),
+    url('/grey-slab2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

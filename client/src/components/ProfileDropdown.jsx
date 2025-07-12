@@ -12,6 +12,7 @@ export default function ProfileDropdown() {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user);
+            console.log('user image url', currentUser?.photoURL)
         });
         return () => unsubscribe();
     }, []);
