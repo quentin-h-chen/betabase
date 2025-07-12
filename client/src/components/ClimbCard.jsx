@@ -13,13 +13,15 @@ export default function ClimbCard( {grade, type, attempts, location, date, note,
     
     return (
         <div className={`climb-card ${gradeClass}`}>
-            <img src='/example.jpg' alt='bouldering-route' className='route-image' />
-            <p><strong>Grade:</strong> {grade}</p>
-            <p><strong>Type:</strong> {type}</p>
-            <p><strong># of Attempts:</strong> {attempts}</p>
-            <p><strong>Location:</strong> {location}</p>
-            <p><strong>Date:</strong> {date}</p>
-            <p><strong>Note:</strong> {note}</p>
+            <img src='/climbcardexample.jpg' alt='bouldering-route' className='route-image' />
+            <div className='card-info'>
+                <p><strong>Grade:</strong> {grade}</p>
+                <p><strong>Type:</strong> {type}</p>
+                <p><strong># of Attempts:</strong> {attempts}</p>
+                <p className='location'><strong>Location:</strong> {location}</p>
+                <p><strong>Date:</strong> {date}</p>
+                <p className='note'><strong>Note:</strong> {note}</p>
+            </div>
             <div className='delete'>
                 <button className='delete-button' onClick={onDelete}>Delete</button>
             </div>
