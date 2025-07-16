@@ -45,7 +45,7 @@ export default function Climbs({ climbs, setClimbs }) {
                                 attempts={climb.attempts}
                                 location={climb.location}
                                 date={climb.date}
-                                note={climb.note} 
+                                note={climb.note || "None"} 
                                 onDelete={()=> handleDelete(index)}
                             />
                         ))

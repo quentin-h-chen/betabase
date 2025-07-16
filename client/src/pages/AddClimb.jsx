@@ -33,6 +33,7 @@ export default function AddClimb({ onAddClimb }) {
                         <label className='climb-label'>Grade:</label>
                         <select value={grade} onChange={(e) => setGrade(e.target.value)} required>
                             <option value="" disabled>Select grade</option>
+                            <option value="VB">VB</option>
                             <option value="V0">V0</option>
                             <option value="V1">V1</option>
                             <option value="V2">V2</option>
