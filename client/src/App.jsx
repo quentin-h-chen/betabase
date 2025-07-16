@@ -24,7 +24,7 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/climbs' element={<Climbs climbs={climbs} setClimbs={setClimbs} />} />
-        <Route path='/analysis' element={<Analysis />} />
+        <Route path='/analysis' element={<Analysis climbs={climbs} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/add-climb' element={<AddClimb onAddClimb={handleAddClimb} />} />
