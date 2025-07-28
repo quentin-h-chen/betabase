@@ -26,7 +26,7 @@ export default function AddClimb({ onAddClimb }) {
         const newClimb = { grade, type, attempts, location, date, note, userId: user.uid };
 
         try {
-            await addDoc(collection(db, "climbs"), newClimb);
+            const docRef = await addDoc(collection(db, "climbs"), newClimb);
 
             if (onAddClimb) {
                 onAddClimb({ id: docRef.id, ...newClimb });
