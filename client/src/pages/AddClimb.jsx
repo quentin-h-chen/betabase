@@ -1,6 +1,8 @@
 import './AddClimb.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { db, auth } from '../firebase/firebaseConfig';
+import { collection, addDoc } from "firebase/firestore";
 
 export default function AddClimb({ onAddClimb }) {
     const [grade, setGrade] = useState('');
@@ -12,15 +14,28 @@ export default function AddClimb({ onAddClimb }) {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const newClimb = { grade, type, attempts, location, date, note };
-
-        if (onAddClimb) {
-            onAddClimb(newClimb);
+        
+        const user = auth.currentUser;
+        if (!user) {
+            alert("You must be logged in to add a climb!");
+            return;
         }
 
-        navigate('/climbs');
+        const newClimb = { grade, type, attempts, location, date, note, userId: user.uid };
+
+        try {
+            await addDoc(collection(db, "climbs"), newClimb);
+
+            if (onAddClimb) {
+                onAddClimb({ id: docRef.id, ...newClimb });
+            }
+
+            navigate('/climbs');
+        } catch (error) {
+            console.error("Error adding climb to Firestore:", error);
+        }
     };
 
     return(
