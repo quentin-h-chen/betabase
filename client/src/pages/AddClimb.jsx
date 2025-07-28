@@ -82,7 +82,7 @@ export default function AddClimb({ onAddClimb }) {
 
                         <div className='attempts'>
                             <label className='climb-label'># of Attempts:</label>
-                            <input type='number' min='1' step='1' value={attempts} onChange={(e) => setAttempts(e.target.value)} required />
+                            <input type='number' min='1' max='10000' step='1' value={attempts} onChange={(e) => setAttempts(e.target.value)} required />
                         </div>
                     </div>
 
