@@ -7,15 +7,44 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AddClimb from './pages/AddClimb';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import About from './pages/About';
+import { db, auth } from './firebase/firebaseConfig';
+import { query, where, collection, getDocs } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function App() {
   const [climbs, setClimbs] = useState([]);
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          try {
+            const climbsQuery = query(
+              collection(db, "climbs"),
+              where("userId", "==", user.uid)
+            );
+            const querySnapshot = await getDocs(climbsQuery);
+            const climbsData = querySnapshot.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data()
+            }));
+            setClimbs(climbsData);
+          } catch (error) {
+            console.error("Error fetching climbs:", error);
+            setClimbs([]);
+          }
+        } else {
+          setClimbs([]);
+        }
+      });
+
+      return () => unsubscribe(); 
+  }, []);
+
   const handleAddClimb = (newClimb) => {
-    setClimbs((prev) => [...prev, newClimb]);
-  };
+      setClimbs((prev) => [...prev, newClimb]);
+    };
 
   return (
     <div className='content'>

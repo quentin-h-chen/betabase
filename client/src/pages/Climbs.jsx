@@ -2,12 +2,19 @@ import './Climbs.css';
 import SidebarFilter from '../components/SidebarFilter';
 import ClimbCard from '../components/ClimbCard';
 import { useNavigate } from 'react-router-dom';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebaseConfig';
 
 export default function Climbs({ climbs, setClimbs }) {
     const navigate = useNavigate();
 
-    const handleDelete = (indexToDelete) => {
-        setClimbs((climbsSoFar) => climbsSoFar.filter((_, index) => index !== indexToDelete));
+    const handleDelete = async (climbId) => {
+        try {
+            await deleteDoc(doc(db, "climbs", climbId));
+            setClimbs(prev => prev.filter(climb => climb.id !== climbId));
+        } catch (error) {
+            console.log("Failed to delete climb:", error);
+        }
     };
 
     return (
@@ -46,7 +53,7 @@ export default function Climbs({ climbs, setClimbs }) {
                                 location={climb.location}
                                 date={climb.date}
                                 note={climb.note || "None"} 
-                                onDelete={()=> handleDelete(index)}
+                                onDelete={()=> handleDelete(climb.id)}
                             />
                         ))
                     ) : (

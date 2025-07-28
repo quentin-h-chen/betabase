@@ -50,6 +50,10 @@
     padding: 3px;
 }
 
+.inputs input[type="date"] {
+    min-width: 9rem;
+}
+
 .inputs textarea {
     font-size: 18px;
     color: black;
