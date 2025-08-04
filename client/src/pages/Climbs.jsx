@@ -4,9 +4,11 @@ import ClimbCard from '../components/ClimbCard';
 import { useNavigate } from 'react-router-dom';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
+import { useState } from 'react';
 
 export default function Climbs({ climbs, setClimbs }) {
     const navigate = useNavigate();
+    const [filter, setFilter] = useState({});
 
     const handleDelete = async (climbId) => {
         try {
@@ -16,6 +18,38 @@ export default function Climbs({ climbs, setClimbs }) {
             console.log("Failed to delete climb:", error);
         }
     };
+
+    const handleFilterChange = (newFilter) => {
+        console.log("received filter", newFilter);
+        setFilter(newFilter)
+    }
+
+    const gradeToNumber = (grade) => {
+        if (grade === "VB") return -1;
+        
+        const numberPart = grade.substring(1);
+        return parseInt(numberPart);
+    }
+
+    const filteredClimbs = climbs.filter((climb) => {
+        // Grade filter
+        
+        const climbGrade = gradeToNumber(climb.grade);
+        const min = filter.minGrade ? gradeToNumber(filter.minGrade) : null;
+        const max = filter.maxGrade ? gradeToNumber(filter.maxGrade) : null;
+
+        if (min !== null && climbGrade < min) return false;
+        if (max !== null && climbGrade > max) return false;
+
+        // Type filter
+        if (filter.types && filter.types.length > 0 && !filter.types.includes(climb.type)) return false;
+        
+        // Attempts filter   
+        if (filter.minAttempts && climb.attempts < filter.minAttempts) return false;
+        if (filter.maxAttempts && climb.attempts > filter.maxAttempts) return false;
+
+        return true;
+    });
 
     return (
         <div className='climbs-page'>
@@ -40,11 +74,11 @@ export default function Climbs({ climbs, setClimbs }) {
                     </div>
                 </div>
 
-                <SidebarFilter />
+                <SidebarFilter onFilter={handleFilterChange} />
 
                 <div className='climbs-grid'>
-                    {climbs && climbs.length > 0 ? (
-                        climbs.map((climb, index) => (
+                    {filteredClimbs && filteredClimbs.length > 0 ? (
+                        filteredClimbs.map((climb, index) => (
                             <ClimbCard
                                 key={index}
                                 grade={climb.grade}
