@@ -18,7 +18,7 @@ export default function ClimbCard( {grade, type, attempts, location, date, note,
                 <p><strong>Grade:</strong> {grade}</p>
                 <p><strong>Type:</strong> {type}</p>
                 <p><strong># of Attempts:</strong> {attempts}</p>
-                <p className='location'><strong>Location:</strong> {location}</p>
+                <p className='location'><strong>Location:</strong> {location.trim()}</p>
                 <p><strong>Date:</strong> {date}</p>
                 <p className='note'><strong>Note:</strong> {note}</p>
             </div>

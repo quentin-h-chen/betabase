@@ -47,6 +47,13 @@ export default function Climbs({ climbs, setClimbs }) {
         // Attempts filter   
         if (filter.minAttempts && climb.attempts < filter.minAttempts) return false;
         if (filter.maxAttempts && climb.attempts > filter.maxAttempts) return false;
+        
+        // Location filter
+        if (filter.location && filter.location.trim() !== '') {
+            const locationFilter = filter.location.toLowerCase();
+            if (!climb.location.toLowerCase().includes(locationFilter)) return false;
+        }
+
 
         return true;
     });

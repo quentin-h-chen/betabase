@@ -1,0 +1,30 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-container label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.search-container input[placeholder='Enter Address'] {
+    padding: 0.4rem;
+    color: black;
+    width: 10.2rem;
+    font-size: 1rem;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    border: none;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-size: 16px;
+    font-weight: bold;
+}

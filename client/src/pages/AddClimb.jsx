@@ -1,4 +1,5 @@
 import './AddClimb.css';
+import LocationAutocompleteForm from '../components/LocationAutocompleteForm';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { db, auth } from '../firebase/firebaseConfig';
@@ -82,15 +83,12 @@ export default function AddClimb({ onAddClimb }) {
 
                         <div className='attempts'>
                             <label className='climb-label'># of Attempts:</label>
-                            <input type='number' min='1' max='10000' step='1' value={attempts} onChange={(e) => setAttempts(e.target.value)} required />
+                            <input type='number' placeholder="0" min='1' max='10000' step='1' value={attempts} onChange={(e) => setAttempts(e.target.value)} required />
                         </div>
                     </div>
 
                     <div className='second-row'>
-                        <div className='location'>
-                            <label className='climb-label'>Location:</label>
-                            <input value={location} onChange={(e) => setLocation(e.target.value)} required />
-                        </div>
+                        <LocationAutocompleteForm location={location} setLocation={setLocation} />
 
                         <div className='date'>
                             <label className='climb-label'>Date:</label>
@@ -100,7 +98,7 @@ export default function AddClimb({ onAddClimb }) {
 
                     <div className='note'>
                         <label className='climb-label'>Note:</label>
-                        <textarea value={note} onChange={(e) => setNote(e.target.value)} maxLength={150} />
+                        <textarea value={note} placeholder="Enter notes" onChange={(e) => setNote(e.target.value)} maxLength={150} />
                         <p>{note.length} / 150 characters</p>
                     </div>
                 </div>

@@ -1,4 +1,6 @@
 import './SidebarFilter.css'
+import LocationAutocomplete from './LocationAutocomplete';
+
 import { useState } from 'react'
 
 export default function SidebarFilter({ onFilter }) {
@@ -7,6 +9,7 @@ export default function SidebarFilter({ onFilter }) {
     const [selectedTypes, setSelectedTypes] = useState([]);
     const [minAttempts, setMinAttempts] = useState('');
     const [maxAttempts, setMaxAttempts] = useState('');
+    const [filterLocation, setFilterLocation] = useState('');
 
 
     const handleFilter = () => {
@@ -15,7 +18,8 @@ export default function SidebarFilter({ onFilter }) {
             maxGrade,
             types: selectedTypes,
             minAttempts, 
-            maxAttempts
+            maxAttempts,
+            location: filterLocation
         });
     };
 
@@ -176,10 +180,7 @@ export default function SidebarFilter({ onFilter }) {
                 </div>
             </div>
 
-            <div className='filter-group'>
-                <label>Location</label>
-                <input type='text' placeholder='Enter Address' />
-            </div>
+            <LocationAutocomplete filterLocation={filterLocation} setFilterLocation={setFilterLocation} />
 
             <div className='filter-group'>
                 <label>Date</label>

@@ -3,3 +3,8 @@
     flex-direction: column;
     height: 100vh;
 }
+
+.pac-container {
+  width: 400px !important; 
+  z-index: 10000; 
+}
