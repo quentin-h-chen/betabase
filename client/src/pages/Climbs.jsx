@@ -81,7 +81,6 @@ export default function Climbs({ climbs, setClimbs }) {
                     </div>
                     <div className='climbs-controls'>
                         <button onClick={() => navigate('/add-climb')}>+</button>
-                        <button>Sort</button>
                     </div>
                 </div>
 
