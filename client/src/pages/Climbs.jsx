@@ -54,6 +54,10 @@ export default function Climbs({ climbs, setClimbs }) {
             if (!climb.location.toLowerCase().includes(locationFilter)) return false;
         }
 
+        // Date filter
+        if (filter.date) {
+            if (climb.date !== filter.date) return false;
+        }
 
         return true;
     });

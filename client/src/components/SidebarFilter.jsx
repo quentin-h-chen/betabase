@@ -10,6 +10,7 @@ export default function SidebarFilter({ onFilter }) {
     const [minAttempts, setMinAttempts] = useState('');
     const [maxAttempts, setMaxAttempts] = useState('');
     const [filterLocation, setFilterLocation] = useState('');
+    const [filterDate, setFilterDate] = useState('');
 
 
     const handleFilter = () => {
@@ -19,7 +20,8 @@ export default function SidebarFilter({ onFilter }) {
             types: selectedTypes,
             minAttempts, 
             maxAttempts,
-            location: filterLocation
+            location: filterLocation,
+            date: filterDate
         });
     };
 
@@ -184,7 +186,11 @@ export default function SidebarFilter({ onFilter }) {
 
             <div className='filter-group'>
                 <label>Date</label>
-                <input type='date' />
+                <input 
+                    type='date' 
+                    value={filterDate}
+                    onChange={(e) => setFilterDate(e.target.value)}
+                />
             </div>
             <div className='filter-group'>
                 <button className='filter-button' onClick={handleFilter}>Filter</button>
