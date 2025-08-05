@@ -1,0 +1,27 @@
+.location-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.location-container label{
+    font-size: 18px;
+}
+
+.location-container input[placeholder='Enter Address'] {
+    padding: 0.4rem;
+    color: black;
+    width: 10.2rem;
+    height: 1rem;
+    font-size: 1rem;
+    background-color: #c5c5c5;
+    border-radius: 3px;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    font-size: 16px;
+    font-weight: bold;
+}

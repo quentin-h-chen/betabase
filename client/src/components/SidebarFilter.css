@@ -37,7 +37,17 @@
     font-weight: bold;
 }
 
-.grade-range, .attempt-range {
+.select-grade {
+    height: 2rem;
+    width: 5rem;
+    gap: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #D9D9D9;
+    font-size: 16px;
+}
+
+.attempt-range {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -52,17 +62,7 @@
 input[type='text'], input[type='number'] {
     padding: 0.4rem;
     color: black;
-    width: 2.8rem;
-    font-size: 1rem;
-    background-color: #D9D9D9;
-    border-radius: 5px;
-    border: none;
-}
-
-input[placeholder='Enter Address'] {
-    padding: 0.4rem;
-    color: black;
-    width: 8rem;
+    width: 4rem;
     font-size: 1rem;
     background-color: #D9D9D9;
     border-radius: 5px;
@@ -72,7 +72,7 @@ input[placeholder='Enter Address'] {
 input[type='date'] {
     padding: 0.4rem;
     color: #929191;
-    width: 8rem;
+    width: 10.2rem;
     font-size: 1rem;
     background-color: #D9D9D9;
     border-radius: 5px;
