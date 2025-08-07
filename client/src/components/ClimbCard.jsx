@@ -1,6 +1,6 @@
 import './ClimbCard.css'
 
-export default function ClimbCard( {grade, type, attempts, location, date, note, onDelete} ) {
+export default function ClimbCard( { grade, type, attempts, location, date, note, onDelete } ) {
     const getGradeClass = (grade) => {
         if (["VB", "V0", "V1"].includes(grade)) return "vb-v1-climb-card";
         if (["V2", "V3", "V4"].includes(grade)) return "v2-v4-climb-card";
@@ -10,10 +10,18 @@ export default function ClimbCard( {grade, type, attempts, location, date, note,
     };
 
     const gradeClass = getGradeClass(grade)
+
+    const climbTypeToImage = {
+        overhang: "/public/default-overhang.jpg",
+        roof: "/public/default-roof.jpg",
+        slab: "/public/default-slab.jpg",
+    };
+
+    const imageUrl = climbTypeToImage[type.toLowerCase()] || "/images/default-overhang.jpg"
     
     return (
         <div className={`climb-card ${gradeClass}`}>
-            <img src='/climbcardexample.jpg' alt='bouldering-route' className='route-image' />
+            <img src={imageUrl} alt={`${type} climb`} className='route-image' />
             <div className='card-info'>
                 <p><strong>Grade:</strong> {grade}</p>
                 <p><strong>Type:</strong> {type}</p>

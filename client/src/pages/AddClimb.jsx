@@ -3,9 +3,10 @@ import LocationAutocompleteForm from '../components/LocationAutocompleteForm';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { db, auth } from '../firebase/firebaseConfig';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc } from 'firebase/firestore';
 
 export default function AddClimb({ onAddClimb }) {
+    const [imageFile, setImageFile] = useState(null);
     const [grade, setGrade] = useState('');
     const [type, setType] = useState('');
     const [attempts, setAttempts] = useState('');
@@ -24,7 +25,16 @@ export default function AddClimb({ onAddClimb }) {
             return;
         }
 
-        const newClimb = { grade, type, attempts, location, date, note, userId: user.uid };
+        const newClimb = { 
+            grade, 
+            type, 
+            attempts, 
+            location, 
+            date, 
+            note, 
+            userId: user.uid,
+            imageUrl,
+        };
 
         try {
             const docRef = await addDoc(collection(db, "climbs"), newClimb);
