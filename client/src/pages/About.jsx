@@ -30,7 +30,7 @@ export default function About() {
                         <div className='tools-container'>
                             <h2>Tools</h2>
                             <p className='about-text'>
-                                React.JS | Express.JS | Firebase | Google Maps API | Figma
+                                React.JS | Firebase | Google Maps API | Figma
                             </p>
                         </div>
                     </div>
