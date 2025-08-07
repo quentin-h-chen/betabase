@@ -6,7 +6,6 @@ import { db, auth } from '../firebase/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 
 export default function AddClimb({ onAddClimb }) {
-    const [imageFile, setImageFile] = useState(null);
     const [grade, setGrade] = useState('');
     const [type, setType] = useState('');
     const [attempts, setAttempts] = useState('');
@@ -33,7 +32,6 @@ export default function AddClimb({ onAddClimb }) {
             date, 
             note, 
             userId: user.uid,
-            imageUrl,
         };
 
         try {
@@ -108,8 +106,8 @@ export default function AddClimb({ onAddClimb }) {
 
                     <div className='note'>
                         <label className='climb-label'>Note:</label>
-                        <textarea value={note} placeholder="Enter notes" onChange={(e) => setNote(e.target.value)} maxLength={150} />
-                        <p>{note.length} / 150 characters</p>
+                        <textarea value={note} placeholder="Enter notes" onChange={(e) => setNote(e.target.value)} maxLength={250} />
+                        <p>{note.length} / 250 characters</p>
                     </div>
                 </div>
 
