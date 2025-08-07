@@ -21,13 +21,11 @@
 }
 
 .hero {
-    margin-right: 60rem;
     display: flex;
     flex-direction: column;
     display: flex;
     justify-content: center;
-    line-height: 0.1;
-    width: max-content;
+    width: 70%;
 }
 
 .hero-text {

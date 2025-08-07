@@ -1,6 +1,9 @@
-import './ClimbCard.css'
+import { useState } from 'react';
+import './ClimbCard.css';
 
-export default function ClimbCard( {grade, type, attempts, location, date, note, onDelete} ) {
+export default function ClimbCard( { grade, type, attempts, location, date, note, onDelete } ) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    
     const getGradeClass = (grade) => {
         if (["VB", "V0", "V1"].includes(grade)) return "vb-v1-climb-card";
         if (["V2", "V3", "V4"].includes(grade)) return "v2-v4-climb-card";
@@ -10,21 +13,51 @@ export default function ClimbCard( {grade, type, attempts, location, date, note,
     };
 
     const gradeClass = getGradeClass(grade)
+
+    const climbTypeToImage = {
+        overhang: "/public/default-overhang.jpg",
+        roof: "/public/default-roof.jpg",
+        slab: "/public/default-slab.jpg",
+    };
+
+    const imageUrl = climbTypeToImage[type.toLowerCase()] 
     
     return (
-        <div className={`climb-card ${gradeClass}`}>
-            <img src='/climbcardexample.jpg' alt='bouldering-route' className='route-image' />
-            <div className='card-info'>
-                <p><strong>Grade:</strong> {grade}</p>
-                <p><strong>Type:</strong> {type}</p>
-                <p><strong># of Attempts:</strong> {attempts}</p>
-                <p className='location'><strong>Location:</strong> {location.trim()}</p>
-                <p><strong>Date:</strong> {date}</p>
-                <p className='note'><strong>Note:</strong> {note}</p>
+        <>
+            <div className={`climb-card ${gradeClass}`} onClick={() => setIsModalOpen(true)}>
+                <img src={imageUrl} alt={`${type} climb`} className='route-image' />
+                <div className='card-info'>
+                    <p><strong>Grade:</strong> {grade}</p>
+                    <p><strong>Type:</strong> {type}</p>
+                    <p><strong># of Attempts:</strong> {attempts}</p>
+                    <p className='location'><strong>Location:</strong> {location.trim()}</p>
+                    <p><strong>Date:</strong> {date}</p>
+                    <p className='note'><strong>Note:</strong> {note}</p>
+                </div>
+                <div className='delete'>
+                    <button 
+                        className='delete-button' 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onDelete();
+                        }}
+                    >
+                        Delete
+                    </button>
+                </div>
             </div>
-            <div className='delete'>
-                <button className='delete-button' onClick={onDelete}>Delete</button>
-            </div>
-        </div>
+
+            {isModalOpen && (
+                <div className='note-modal' onClick={() => setIsModalOpen(false)}>
+                    <div className='note-modal-content' onClick={(e) => e.stopPropagation()}>
+                        <div className='note-modal-text'>
+                            <p className='climb-notes-label'>Climb Notes</p> 
+                            {note}
+                        </div>
+                        <button onClick={() => setIsModalOpen(false)}>Close</button>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }
