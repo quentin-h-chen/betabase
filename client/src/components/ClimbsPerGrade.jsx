@@ -1,35 +1,30 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 export default function ClimbsPerGradeChart({climbs}) {
-    const data = [
-        { name: 'V0', attempts: 2 },
-        { name: 'V1', attempts: 20 },
-        { name: 'V2', attempts: 40 },
-        { name: 'V3', attempts: 50 },
-        { name: 'V4', attempts: 15 },
-        { name: 'V5', attempts: 10 },
-        { name: 'V6', attempts: 8 },
-        { name: 'V7', attempts: 4 },
-        { name: 'V8', attempts: 2 },
-        { name: 'V9', attempts: 1 },
-        { name: 'V10', attempts: 0 },
-        { name: 'V11', attempts: 0 },
-        { name: 'V12', attempts: 0 },
-        { name: 'V13', attempts: 0 },
-        { name: 'V14', attempts: 0 },
-        { name: 'V15', attempts: 0 },
-        { name: 'V16', attempts: 0 },
-        { name: 'V17', attempts: 0 },
-    ];
+    // Object to count climbs per grade
+    const gradeCount = climbs.reduce((accumulator, climb) => {
+        const grade = climb.grade;
+        accumulator[grade] = (accumulator[grade] || 0) + 1;
+        return accumulator;
+    }, {});
+
+    // Organizing array by grade scale
+    const gradeScale = Array.from({length: 18}, (_, i) => `V${i}`);
+
+    // Transform into array format for recharts
+    const data = gradeScale.map(grade => ({
+        name: grade,
+        climbs: gradeCount[grade] || 0
+    }));
 
     return (
         <ResponsiveContainer width="100%" height={250}>
             <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" stroke='white'/>
-            <YAxis stroke='white'/>
+            <YAxis allowDecimals={false} stroke='white'/>
             <Tooltip />
-            <Bar dataKey="attempts" fill="#FFC60B" />
+            <Bar dataKey="climbs" fill="#FFC60B" />
             </BarChart>
         </ResponsiveContainer>
     );

@@ -36,6 +36,7 @@ export default function Home() {
                         </h3>
                         <p>See your grade trends and progress</p>
                     </div>
+                    {/* 
                     <div className='feature'>
                         <h3>
                             <span class="material-symbols-outlined">play_arrow</span>
@@ -43,6 +44,7 @@ export default function Home() {
                         </h3>
                         <p>Store and watch videos of your sends</p>
                     </div>
+                    */}
                     <div className='feature'>
                         <h3>
                             <span class="material-symbols-outlined">trophy</span>
