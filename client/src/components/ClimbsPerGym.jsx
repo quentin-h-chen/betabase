@@ -25,11 +25,10 @@ export default function ClimbsPerGymChart({climbs}) {
             <BarChart data={data} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" stroke="#888" />
             <XAxis allowDecimals={false} type="number" stroke="white" />
-            <YAxis dataKey="name" type="category" stroke="white" width={300} />
+            <YAxis dataKey="name" type="category" stroke="white" width={'auto'}/>
             <Tooltip />
             <Bar dataKey="climbs" fill="#946eecff" />
             </BarChart>
         </ResponsiveContainer>
     )
-
 }
