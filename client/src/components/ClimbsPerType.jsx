@@ -2,7 +2,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 
 const COLORS = ['#68BC49', '#EE4343', '#389EE8'];
 
-export default function ClimbsPerTypeChart({climbs}) {
+export default function ClimbsPerTypeChart({ climbs }) {
     // Count climbs by type
     const typeCount = climbs.reduce((accumulator, climb) => {
         const type = climb.type;

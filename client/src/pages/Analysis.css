@@ -36,7 +36,7 @@
     max-width: 100%;
 }
 
-.analysis-container h3 {
+.category-header {
     font-family: "Zen Dots", sans-serif;
     border-bottom: 2px solid #FFC60B;
     padding-bottom: 0.5rem;
@@ -83,34 +83,34 @@
 .row-1 {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .row-2 {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .row-3 {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .row-4 {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.row-5 {
+.personal-performance-container {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.chart-1 {
+.climbing-level-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,10 +118,33 @@
     background-color: #000000c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
-    width: 70%;
+    width: 15%;
 }
 
-.chart-2 {
+.climbs-per-grade-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000c9;
+    border-radius: 10px;
+    border: 2px solid #ffffff38;
+    width: 55%;
+}
+
+.climbing-style-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000c9;
+    border-radius: 10px;
+    border: 2px solid #ffffff38;
+    width: 30%;
+    overflow-x: hidden;
+}
+
+.climbs-per-type-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,7 +157,7 @@
     overflow-x: hidden;
 }
 
-.chart-3 {
+.attempts-per-grade-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,7 +168,7 @@
     width: 70%;
 }
 
-.chart-4 {
+.top-flash-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -156,7 +179,7 @@
     width: 30%;
 }
 
-.chart-5 {
+.climbs-per-gym-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,7 +192,7 @@
     overflow-x: hidden;
 }
 
-.chart-6 {
+.grade-per-location-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -179,37 +202,3 @@
     border: 2px solid #ffffff38;
     width: 30%;
 }
-
-.chart-7 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #000000c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: max-content;
-}
-
-.chart-8 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #000000c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: max-content;
-}
-
-.chart-9 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #000000c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: max-content;
-}
-

@@ -1,0 +1,42 @@
+.current-level-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-level-flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.climbing-level-header {
+    font-family: "Zen Dots", sans-serif;
+}
+
+.info-icon  {
+    cursor: pointer;
+    user-select: none;
+}
+
+.tooltip {
+    position: absolute;
+    top: 50%;
+    left: 102%;
+    transform: translateY(-50%);
+    background-Color: #222;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    z-index: 10;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.grade-header {
+    font-family: "Zen Dots", sans-serif;
+    font-size: 90px;
+}
+
