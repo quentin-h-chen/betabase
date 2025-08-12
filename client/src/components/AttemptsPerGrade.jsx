@@ -34,7 +34,7 @@ export default function AvgAttemptsPerGradeChart({climbs}) {
                 <XAxis dataKey="name" stroke='white' />
                 <YAxis allowDecimals={false} stroke='white' />
                 <Tooltip />
-                <Bar dataKey="avgAttempts" fill="#FFC60B" />
+                <Bar dataKey="avgAttempts" fill="#EE4343" />
             </BarChart>
         </ResponsiveContainer>
 

@@ -21,7 +21,7 @@ export default function ClimbsPerGymChart({climbs}) {
     const chartHeight = data.length * 50;
 
     return (
-        <ResponsiveContainer width="100%" height={chartHeight > 500 ? chartHeight : 500}>
+        <ResponsiveContainer width="100%" height={chartHeight > 400 ? chartHeight : 400}>
             <BarChart data={data} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" stroke="#888" />
             <XAxis allowDecimals={false} type="number" stroke="white" />

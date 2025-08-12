@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import './CurrentClimbingLevel.css';
 
 export default function CurrentClimbingLevel({ climbs }) {
-    const [showToolTip, setShowToolTip] = useState(false);
+   
 
     // Functions to calculate highest grade with 3+ climbs
     function gradeToNumber(grade) {
@@ -46,29 +45,7 @@ export default function CurrentClimbingLevel({ climbs }) {
 
     return (
         <div className='current-level-container'>
-            <div className='current-level-flex'>
-                <h3 className='climbing-level-header'>Climbing Level</h3>
-                <span
-                    className='info-icon'
-                    onMouseEnter={() => setShowToolTip(true)}
-                    onMouseLeave={() => setShowToolTip(false)}
-                    aria-label="Info about current climbing level"
-                    role="button"
-                    tabIndex={0}
-                    onFocus={() => setShowToolTip(true)}
-                    onBlur={() => setShowToolTip(false)}
-                >
-                    ℹ️
-                </span>
-            </div>
-
             <h1 className='grade-header'>{currentGrade}</h1>
-
-            {showToolTip && (
-                <div className='tooltip'>
-                    Highest grade with 3+ routes completed
-                </div>
-            )}
         </div>
     );
 }

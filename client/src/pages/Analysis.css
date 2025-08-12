@@ -17,7 +17,7 @@
 }
 
 .title-container {
-    width: 80%;
+    width: 90%;
 }
 
 .title-container h2 {
@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: 80%;
+    width: 90%;
     background-color: #535353c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
@@ -119,7 +119,32 @@
     border-radius: 10px;
     border: 2px solid #ffffff38;
     width: 15%;
+    overflow-wrap: anywhere;
 }
+
+.info-icon  {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+}
+
+.tooltip {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    margin-left: 6px;
+    background-color: #222;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    z-index: 9999;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
 
 .climbs-per-grade-chart {
     display: flex;
@@ -141,20 +166,7 @@
     border-radius: 10px;
     border: 2px solid #ffffff38;
     width: 30%;
-    overflow-x: hidden;
-}
-
-.climbs-per-type-chart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #000000c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: 30%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-wrap: anywhere;
 }
 
 .attempts-per-grade-chart {
@@ -165,18 +177,7 @@
     background-color: #000000c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
-    width: 70%;
-}
-
-.top-flash-chart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #000000c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: 30%;
+    width: 100%;
 }
 
 .climbs-per-gym-chart {
@@ -201,4 +202,17 @@
     border-radius: 10px;
     border: 2px solid #ffffff38;
     width: 30%;
+}
+
+.climbs-per-type-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000c9;
+    border-radius: 10px;
+    border: 2px solid #ffffff38;
+    width: 30%;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
 }
