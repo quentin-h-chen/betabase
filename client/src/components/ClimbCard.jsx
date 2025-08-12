@@ -64,7 +64,7 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
                 <div className='note-modal' onClick={() => setIsModalOpen(false)}>
                     <div className='note-modal-content' onClick={(e) => e.stopPropagation()}>
                         <div className='note-modal-text'>
-                            <p className='climb-notes-label'>More Info</p> 
+                            <p className='climb-notes-label'>More</p> 
                             <p><strong>Location:</strong> {location}</p>
                             <p><strong>Note:</strong> {note}</p>
                         </div>
