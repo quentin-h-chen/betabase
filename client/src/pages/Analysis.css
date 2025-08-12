@@ -1,84 +1,208 @@
 .analysis-page {
     display: flex;
+    flex-direction: column;
     padding: 1rem;
     font-family: 'inter', sans-serif;
-    height: 100vh;
     margin: 0;
     background-color: #F4F4F4;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0)),
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 70%, rgb(0, 0, 0)),
     url('/bw-2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-color: #00000079 #535353c9;
+}
+
+.title-container {
+    width: 100%;
+}
+
+.title-container h2 {
+    color: white;
+    font-size: 30px;
+    font-family: "Zen Dots", sans-serif;
+    display: flex;
     justify-content: center;
 }
 
-h2 {
+.analysis-container h2 {
     font-size: 30px;
     font-family: "Zen Dots", sans-serif;
+    border-bottom: 2px solid #FFC60B;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.category-header {
+    font-family: "Zen Dots", sans-serif;
+    border-bottom: 2px solid #FFC60B;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.chart-header {
+    display: flex;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 18px;
 }
 
 .analysis-container {
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    width: 70%;
-    background-color: #535353c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
+    gap: 1rem;
+    width: 95%;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
-    padding: 2rem;
+    margin-top: 0.2rem;
+}
+
+.analysis-container::-webkit-scrollbar{
+    background-color: transparent;
+    width: 10px;
+}
+
+.analysis-container::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.analysis-container::-webkit-scrollbar-thumb {
+    background-color: #00000079;
+    border-radius: 15px;
 }
 
 .row-1 {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .row-2 {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.chart-1 {
+.row-3 {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.personal-performance-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.climbing-level-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem;
-    background-color: #535353c9;
+    background-color: #000000c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
-    width: 80%;
+    width: 15%;
+    overflow-wrap: anywhere;
 }
 
-.chart-2 {
+.info-icon  {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+}
+
+.tooltip {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    margin-left: 6px;
+    background-color: #222;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    z-index: 9999;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+
+.climbs-per-grade-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem;
-    background-color: #535353c9;
+    background-color: #000000c9;
+    border-radius: 10px;
+    border: 2px solid #ffffff38;
+    width: 55%;
+}
+
+.climbing-style-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000c9;
+    border-radius: 10px;
+    border: 2px solid #ffffff38;
+    width: 30%;
+    overflow-wrap: anywhere;
+}
+
+.attempts-per-grade-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000c9;
+    border-radius: 10px;
+    border: 2px solid #ffffff38;
+    width: 100%;
+}
+
+.climbs-per-gym-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000c9;
+    border-radius: 10px;
+    border: 2px solid #ffffff38;
+    width: 70%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.grade-per-location-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
     width: 30%;
 }
 
-.chart-3 {
+.climbs-per-type-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem;
-    background-color: #535353c9;
+    background-color: #000000c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
-    width: max-content;
+    width: 30%;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
 }
 
-.chart-4 {
-    padding: 1rem;
-    background-color: #535353c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: max-content;
-}
-
-.chart-5 {
-    padding: 1rem;
-    background-color: #535353c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: max-content;
-}

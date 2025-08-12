@@ -5,7 +5,7 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
     const [isModalOpen, setIsModalOpen] = useState(false);
     
     const getGradeClass = (grade) => {
-        if (["VB", "V0", "V1"].includes(grade)) return "vb-v1-climb-card";
+        if (["V0", "V1"].includes(grade)) return "vb-v1-climb-card";
         if (["V2", "V3", "V4"].includes(grade)) return "v2-v4-climb-card";
         if (["V5", "V6", "V7"].includes(grade)) return "v5-v7-climb-card";
         if (["V8", "V9"].includes(grade)) return "v8-v9-climb-card";
@@ -51,8 +51,9 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
                 <div className='note-modal' onClick={() => setIsModalOpen(false)}>
                     <div className='note-modal-content' onClick={(e) => e.stopPropagation()}>
                         <div className='note-modal-text'>
-                            <p className='climb-notes-label'>Climb Notes</p> 
-                            {note}
+                            <p className='climb-notes-label'>More Info</p> 
+                            <p><strong>Location:</strong> {location}</p>
+                            <p><strong>Note:</strong> {note}</p>
                         </div>
                         <button onClick={() => setIsModalOpen(false)}>Close</button>
                     </div>

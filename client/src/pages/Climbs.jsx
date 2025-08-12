@@ -25,8 +25,6 @@ export default function Climbs({ climbs, setClimbs }) {
     }
 
     const gradeToNumber = (grade) => {
-        if (grade === "VB") return -1;
-        
         const numberPart = grade.substring(1);
         return parseInt(numberPart);
     }
@@ -68,7 +66,7 @@ export default function Climbs({ climbs, setClimbs }) {
                 <div className='climbs-header'>
                     <h2>Your Climbs</h2>
                     <div className='tags-container'>
-                        <label className='first-label'>VB-V1</label>
+                        <label className='first-label'>V0-V1</label>
                         <div className='green-tag-bar' />
                         <label>V2-V4</label>
                         <div className='red-tag-bar' />

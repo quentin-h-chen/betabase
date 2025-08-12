@@ -1,0 +1,16 @@
+.current-level-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.climbing-level-header {
+    font-family: "Zen Dots", sans-serif;
+}
+
+.grade-header {
+    font-family: "Zen Dots", sans-serif;
+    font-size: clamp(2.5rem, 4vw, 90px);
+}
+
