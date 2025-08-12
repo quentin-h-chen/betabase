@@ -61,7 +61,7 @@ export default function Analysis({ climbs }) {
                 <h3 className='category-header'>Location & Variety</h3>
                 <div className='row-3'>
                     <div className='climbs-per-gym-chart'>
-                        <p className='chart-header'>Climbs Per Gym</p>
+                        <p className='chart-header'>Number of Climbs Per Gym</p>
                         <ClimbsPerGymChart climbs={climbs} />
                     </div>
                     
