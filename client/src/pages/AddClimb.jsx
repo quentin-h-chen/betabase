@@ -12,6 +12,7 @@ export default function AddClimb({ onAddClimb }) {
     const [location, setLocation] = useState('');
     const [date, setDate] = useState('');
     const [note, setNote] = useState('');
+    const [videoUrl, setVideoUrl] = useState('');
 
     const navigate = useNavigate();
 
@@ -33,6 +34,11 @@ export default function AddClimb({ onAddClimb }) {
             note, 
             userId: user.uid,
         };
+
+        // Add videoUrl if user entered link
+        if (videoUrl.trim() !== '') {
+            newClimb.videoUrl = videoUrl.trim();
+        }
 
         try {
             const docRef = await addDoc(collection(db, "climbs"), newClimb);
@@ -108,6 +114,17 @@ export default function AddClimb({ onAddClimb }) {
                         <textarea value={note} placeholder="Enter notes" onChange={(e) => setNote(e.target.value)} maxLength={250} />
                         <p>{note.length} / 250 characters</p>
                     </div>
+
+                    <div className='video-url'>
+                        <label className='climb-label'>YouTube Video URL (Unlisted or Public YouTube Link):</label>
+                        <input 
+                            type='url'
+                            placeholder='https://www.youtube.com/watch?v=...'
+                            value={videoUrl}
+                            onChange={(e) => setVideoUrl(e.target.value)}
+                        />
+                    </div>
+
                 </div>
 
                 <button type='submit' className='submit-form'>Add Climb</button>

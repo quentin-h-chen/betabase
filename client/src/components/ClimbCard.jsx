@@ -1,8 +1,21 @@
 import { useState } from 'react';
 import './ClimbCard.css';
 
-export default function ClimbCard( { grade, type, attempts, location, date, note, onDelete } ) {
+export default function ClimbCard( { grade, type, attempts, location, date, note, videoUrl, onDelete } ) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // Helper to extract YouTube video ID from URL
+    const getYouTubeID = (url) => {
+        if (!url) return null;
+        const regExp = /^.*(?:youtu.be\/|youtube.com\/(?:shorts\/|embed\/|watch\?v=|v\/))([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[1].length === 11) ? match[1] : null;
+    }
+
+    // Extract video ID from passed videoUrl prop
+    const videoID = getYouTubeID(videoUrl);
+
+    console.log('videoUrl:', videoUrl, 'videoID:', videoID);
     
     const getGradeClass = (grade) => {
         if (["V0", "V1"].includes(grade)) return "vb-v1-climb-card";
@@ -55,9 +68,20 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
                             <p><strong>Location:</strong> {location}</p>
                             <p><strong>Note:</strong> {note}</p>
                         </div>
+                        {videoID && (
+                            <div className='video-container'>
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${videoID}`}
+                                    title='Your Beta'
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        )}
                         <button onClick={() => setIsModalOpen(false)}>Close</button>
                     </div>
                 </div>
+                
             )}
         </>
     );

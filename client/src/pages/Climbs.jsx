@@ -95,6 +95,7 @@ export default function Climbs({ climbs, setClimbs }) {
                                 location={climb.location}
                                 date={climb.date}
                                 note={climb.note || "None"} 
+                                videoUrl={climb.videoUrl}
                                 onDelete={()=> handleDelete(climb.id)}
                             />
                         ))
