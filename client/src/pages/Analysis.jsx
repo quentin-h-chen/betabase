@@ -13,10 +13,10 @@ export default function Analysis({ climbs }) {
     return (
         <div className='analysis-page'>
             <div className='title-container'>
-                <h2>Analysis</h2>
+                <h2>Personal Analysis</h2>
             </div>
             <div className='analysis-container'>
-               <h3 className='category-header'>Personal Performace</h3>
+               <h3 className='category-header'>Performance</h3>
                 <div className='personal-performance-container'>
                     <div className='climbing-level-chart'>
                         <h3 className='climbing-level-header'>
