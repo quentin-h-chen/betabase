@@ -3,11 +3,26 @@ import { auth, googleProvider } from '../firebase/firebaseConfig';
 import './GoogleSignIn.css'
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * GoogleSignIn Component
+ * 
+ * Displays button for user to sign in through Google OAuth
+ * Sucessful:
+ * - Displays welcome alert
+ * - Redirects user to home page
+ * Failure:
+ * - Displays alert with error message
+ */
 export default function GoogleSignIn() {
+    // React router hook for navigation
     const navigate = useNavigate();
 
+    /**
+     * handles Google sign-in with a Firebase popup
+     */
     const handleGoogleSignIn = async () => {
         try {
+            // Trigger popup
             const result = await signInWithPopup(auth, googleProvider);
             const user = result.user;
             alert(`Welcome ${user.displayName}!`);

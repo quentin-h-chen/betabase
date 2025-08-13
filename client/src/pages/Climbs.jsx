@@ -6,29 +6,64 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 import { useState } from 'react';
 
+/**
+ * Climbs Page
+ * 
+ * Displays list of users climbs in 'climb cards' and allows filtering
+ * - Filter by grade, type, attempts, location, and date
+ * - Delete climbs from Firestore
+ * - Plus button to add climb (navigates to Add Climb Page with add climb form)
+ * 
+ * Props
+ * - climbs: array of climb objects (cards) in Firestore
+ * - setClimbs: state setter used to make changes to climbs such as deletion
+ */
+
 export default function Climbs({ climbs, setClimbs }) {
+    
+    // Reac Router hook for navigation
     const navigate = useNavigate();
+
+    // Stores filter settings
     const [filter, setFilter] = useState({});
 
+    /**
+     * Handles deletion of climb document in Firestore by document ID
+     * @param {string} climbId - document ID from Firestore of the specified climb
+     */
     const handleDelete = async (climbId) => {
         try {
             await deleteDoc(doc(db, "climbs", climbId));
+            // Remove specified climb from local state
             setClimbs(prev => prev.filter(climb => climb.id !== climbId));
         } catch (error) {
             console.log("Failed to delete climb:", error);
         }
     };
 
+    /**
+     * Handles updated filter object from SidebarFilter
+     * @param {Object} newFilter - Filter settings from SidebarFilter component
+     */
     const handleFilterChange = (newFilter) => {
         console.log("received filter", newFilter);
         setFilter(newFilter)
     }
 
+    /**
+     * Converts string containing grade into an integer 
+     * @param {string} grade - grade string ("V7")
+     * @returns {number} number portion of grade (7 in "V7")
+     */
     const gradeToNumber = (grade) => {
         const numberPart = grade.substring(1);
         return parseInt(numberPart);
     }
 
+    /**
+     * Filters climbs with selected filters
+     * Returns climbs that match all selected filters
+     */
     const filteredClimbs = climbs.filter((climb) => {
         // Grade filter
         

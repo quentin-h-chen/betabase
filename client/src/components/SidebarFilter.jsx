@@ -1,9 +1,23 @@
 import './SidebarFilter.css'
 import LocationAutocomplete from './LocationAutocomplete';
-
 import { useState } from 'react'
 
+/**
+ * SidebarFilter Component
+ * 
+ * Allows the user to filter climbs based on different criteria
+ * - Grade range
+ * - Climb type
+ * - Number of attempts range
+ * - Location with LocationAutoComplete from Google Maps API
+ * - Date
+ * 
+ * Props:
+ * - onFilter: passes selected filters back to parent component
+ */
 export default function SidebarFilter({ onFilter }) {
+    /* State variables for minimum grade, maximum grade, selected types, minimum 
+    attempts, maximum attempts, location, and date */
     const [minGrade, setMinGrade] = useState('');
     const [maxGrade, setMaxGrade] = useState('');
     const [selectedTypes, setSelectedTypes] = useState([]);
@@ -12,7 +26,9 @@ export default function SidebarFilter({ onFilter }) {
     const [filterLocation, setFilterLocation] = useState('');
     const [filterDate, setFilterDate] = useState('');
 
-
+    /**
+     * Handles filter values and calls parent onFilter callback function
+     */
     const handleFilter = () => {
         onFilter({
             minGrade, 

@@ -1,8 +1,18 @@
 import './Home.css'
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Home Page
+ * 
+ * Displays the landing page with a hero section, call to action buttons,
+ * and a list of key features in the footer. The Get Started and
+ * Learn More buttons utilize react-router's 'useNavigate' hook to
+ * help users navigate to the Climbs and About page.
+ */
+
 export default function Home() {
-    const navigate = useNavigate();
+    // Hook for navigation
+    const navigate = useNavigate(); 
 
     return (
         <div className='home-page'>

@@ -1,7 +1,19 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 
+/**
+ * ClimbsPerChart Component
+ * 
+ * Displays a vertical bar chart with the number of climbs per gym location
+ * 
+ * Props:
+ * - climbs: Array of climb objects (climb cards)
+ */
 export default function ClimbsPerGymChart({climbs}) {
-    // Count climbs per gym and extract gym names
+    /**
+     * Count climbs per page
+     * 
+     * Extract gym name from full address
+     */
     const gymCount = climbs.reduce((accumulator, climb) => {
         const fullName = climb.location;
 
@@ -12,12 +24,17 @@ export default function ClimbsPerGymChart({climbs}) {
 
     }, {});
 
-    // Convert to array format for rechart
+    /**
+     * Prepare data for BarChart
+     * 
+     * Convert gymCount object into array of objects for Recharts Bar component
+     */
     const data = Object.entries(gymCount).map(([gym, count]) => ({
         name: gym,
         climbs: count,
     }));
 
+    // Enable chart height to be set dynamically
     const chartHeight = data.length * 50;
 
     return (

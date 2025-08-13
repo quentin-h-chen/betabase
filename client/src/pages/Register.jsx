@@ -4,18 +4,39 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig';
 import GoogleSignIn from '../components/GoogleSignIn';
 
+/**
+ * Register Page
+ * 
+ * Displays register form for users to create an account with email/password or Google OAuth (GoogleSignIn component)
+ * Successful: User receives alert confirming registration
+ */
+
 export default function Register() {
+    // State variables for user email and password
     const [user, setUser] = useState("")
     const [pass, setPass] = useState("")
     
+    /**
+     * Handles user email input change and updates user state
+     * @param {Object} e - input change event
+     */
     const setUserHandler = (e) => {
         setUser(e.target.value)
     }
 
+    /**
+     * Handles password input change and updates pass state
+     * @param {Object} e - input change event
+     */
     const setPassHandler = (e) => {
         setPass(e.target.value)
     }
 
+    /**
+     * Attempts to submit form and register user via Firebase Auth
+     * Successful: displays confirmation alert
+     * Firebase throws error
+     */
     const submitHandler = async () => {
         await createUserWithEmailAndPassword(auth, user, pass);
         alert("You have been registered successfully!")

@@ -5,19 +5,44 @@ import { auth } from '../firebase/firebaseConfig';
 import GoogleSignIn from '../components/GoogleSignIn';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Login Page 
+ * 
+ * Displays login form for users to sign in using two different methods:
+ * - Email + password via Firebase Auth
+ * - Google OAuth (GoogleSignIn component)
+ * Users are redirected to the home page after signing in
+ */
+
 export default function Login() {
+    // State variables for username and password
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
+
+    // React Router hook for navigation
     const navigate = useNavigate();
 
+    /**
+     * Handles user email input change and updates user state
+     * @param {Object} e - input change event
+     */
     const setUserHandler = (e) => {
         setUser(e.target.value);
     }
 
+    /**
+     * Handles password input change and updates pass state
+     * @param {Object} e - input change event 
+     */
     const setPassHandler = (e) => {
         setPass(e.target.value);
     }
 
+    /**
+     * Attempts to let user sign in via Firebase Auth
+     * Successful: displays popup welcoming user and redirects to home page
+     * Unsucessful: displays error message
+     */
     const submitHandler = async() => {
         try {
             await signInWithEmailAndPassword(auth, user, pass);

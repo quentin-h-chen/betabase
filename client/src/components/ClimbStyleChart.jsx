@@ -1,15 +1,28 @@
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Tooltip, ResponsiveContainer } from "recharts";
 
-const COLORS = ["#68BC49", "#EE4343", "#389EE8", "#F2A541", "#6A4C93"];
-
+/**
+ * ClimbStyleChart Component
+ * 
+ * Displays radar chart with the number of climbs per route type (overhang, roof, slab)
+ * 
+ * Props:
+ * - climbs: Array of climb objects (climb cards)
+ */
 export default function ClimbStyleChart({ climbs }) {
-    // Count climbs by type
+    /**
+     * Count climbs by type
+     */
     const typeCount = climbs.reduce((accumulator, climb) => {
         const type = climb.type;
         accumulator[type] = (accumulator[type] || 0) + 1;
         return accumulator;
     }, {});
     
+    /**
+     * Prepares data for RadarChart
+     * 
+     * Converts typeCount object into array of objects for Recharts Radar component 
+     */
     const data = Object.entries(typeCount).map(([type, count]) => ({
         type,
         count,

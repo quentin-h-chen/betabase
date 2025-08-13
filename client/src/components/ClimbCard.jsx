@@ -1,10 +1,32 @@
 import { useState } from 'react';
 import './ClimbCard.css';
 
+/**
+ * ClimbCard Component
+ * 
+ * Displays information about each climb in climb cards
+ * Contains:
+ * - Grade, type, attempts, location, date, notes, and an optional YouTube video link
+ * - Delete button to delete climb card
+ * - Modal popup for more info and embedded YouTube video
+ * 
+ * Props:
+ * - grade: string
+ * - type: string
+ * - attempts: number of attempts
+ * - location: string
+ * - date: string
+ * - note: string
+ * - videoUrl: string
+ * - onDelete: function to delete climb card
+ */
 export default function ClimbCard( { grade, type, attempts, location, date, note, videoUrl, onDelete } ) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Helper to extract YouTube video ID from URL
+    /**
+     * Helper to extract YouTube video ID from URL
+     * or returns null if URL is invalid
+     */
     const getYouTubeID = (url) => {
         if (!url) return null;
         const regExp = /^.*(?:youtu.be\/|youtube.com\/(?:shorts\/|embed\/|watch\?v=|v\/))([^#&?]*).*/;
@@ -14,9 +36,11 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
 
     // Extract video ID from passed videoUrl prop
     const videoID = getYouTubeID(videoUrl);
-
-    console.log('videoUrl:', videoUrl, 'videoID:', videoID);
     
+    /**
+     * Return CSS class name based on grade of climb card
+     * Color grades cards by grade
+     */
     const getGradeClass = (grade) => {
         if (["V0", "V1"].includes(grade)) return "vb-v1-climb-card";
         if (["V2", "V3", "V4"].includes(grade)) return "v2-v4-climb-card";
@@ -27,6 +51,7 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
 
     const gradeClass = getGradeClass(grade)
 
+    // Assign default images to each climb type
     const climbTypeToImage = {
         overhang: "/public/default-overhang.jpg",
         roof: "/public/default-roof.jpg",

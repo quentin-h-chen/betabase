@@ -2,6 +2,13 @@ import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import ProfileDropdown from './ProfileDropdown';
 
+/**
+ * Navigation Component
+ * 
+ * Displays navigation bar
+ * Contains:
+ * - Betabase logo, navigation links, and user profile dropdown 
+ */
 export default function Navbar() {
     return (
         <nav className="navbar">

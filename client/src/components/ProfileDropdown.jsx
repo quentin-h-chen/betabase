@@ -4,29 +4,57 @@ import { useNavigate } from "react-router-dom";
 import { auth } from '../firebase/firebaseConfig';
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
+/**
+ * ProfileDropdown Component
+ * 
+ * Displays dropdown menu 
+ * Contains:
+ * - User avatar
+ * - Sign-in/sign-out button if user is logged in
+ * - Sign-up button if user is not authenticated
+ */
+
 export default function ProfileDropdown() {
+    // State variables to control drop down menu
     const [open, setOpen] = useState(false);
+
+    // State variables to store authenticated user
     const [currentUser, setCurrentUser] = useState(null)
+
+    // React router hook for navigation
     const navigate = useNavigate();
 
+    /**
+     * onAuthStateChanged listener
+     * - Monitors authentication state
+     * - Updates currentUser
+     */
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user);
-            console.log('user image url', currentUser?.photoURL)
         });
         return () => unsubscribe();
     }, []);
 
+    /**
+     * Redirect user to login page and close dropdown menu
+     */
     const handleSignIn = () => {
         navigate('/login')
         setOpen(false);
     };
 
+    /**
+     * Redirect user to sign-up page and close dropdown menu
+     */
     const handleSignUp = () => {
         navigate('/register')
         setOpen(false);
     }
 
+    /**
+     * Sign out user and close dropdown menu
+     */
     const handleSignOut = async () => {
         try {
             await signOut(auth);
@@ -34,11 +62,6 @@ export default function ProfileDropdown() {
         } catch (error) {
             alert(error.message);
         }
-        setOpen(false);
-    };
-
-    const handleChangePicture = () => {
-        alert('Change Picture clicked');
         setOpen(false);
     };
 

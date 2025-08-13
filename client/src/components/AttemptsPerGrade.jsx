@@ -1,7 +1,15 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 
+/**
+ * AvgAttemptsPerGradeChart Component
+ * 
+ * Displays horizontal bar chart with average number of attempts per grade
+ * 
+ * Props:
+ * - climbs: Array of climb objects (climb cards)
+ */
 export default function AvgAttemptsPerGradeChart({climbs}) {
-    // Count attempts by grade
+    // Calculate total attempts and number of climbs per grade
     const attemptsByGrade = climbs.reduce((accumulator, climb) => {
         const grade = climb.grade;
         const attempts = Number(climb.attempts);
@@ -17,7 +25,7 @@ export default function AvgAttemptsPerGradeChart({climbs}) {
     // Define grade scale
     const gradeScale = Array.from({ length: 18 }, (_, i) => `V${i}`);
 
-    // Calculate average attempts per grade for rechart
+    // Convert gradeScale into array for Rechart Bar Component
     const data = gradeScale.map(grade => {
         const gradeData = attemptsByGrade[grade];
         const avgAttempts = gradeData ? Number((gradeData.totalAttempts / gradeData.count).toFixed(2)) : 0;

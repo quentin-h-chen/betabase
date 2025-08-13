@@ -1,15 +1,31 @@
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
+// Array of colors for each type slice in pie chart
 const COLORS = ['#68BC49', '#EE4343', '#389EE8'];
 
+/**
+ * ClimbsPerTypeChart Component
+ * 
+ * Displays a pie chart showing how many climbs the user has in each type of route (overhang, roof, slab)
+ * 
+ * Props:
+ * - climbs: Array of climb objects (climb cards)
+ */
 export default function ClimbsPerTypeChart({ climbs }) {
-    // Count climbs by type
+    /**
+     * Count climbs by type
+     */
     const typeCount = climbs.reduce((accumulator, climb) => {
         const type = climb.type;
         accumulator[type] = (accumulator[type] || 0) + 1;
         return accumulator;
     }, {});
     
+    /**
+     * Prepare data for PieChart
+     * 
+     * Convert typeCount into array of objects for Recharts Pie component
+     */
     const data = Object.entries(typeCount).map(([type, count]) => ({
         name: type,
         value: count,

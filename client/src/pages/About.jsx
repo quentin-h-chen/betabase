@@ -1,5 +1,13 @@
 import './About.css'
 
+/**
+ * About Page
+ * 
+ * Displays information about the creation of Betabase
+ * - Mission statement
+ * - Team
+ * - Tools used to create Betabase
+ */
 export default function About() {
     return(
         <div className='about-page'>
