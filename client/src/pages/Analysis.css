@@ -206,3 +206,8 @@
     overflow-wrap: anywhere;
 }
 
+@media (max-width: 1680px) {
+    .analysis-container {
+        box-sizing: border-box;
+    }
+}

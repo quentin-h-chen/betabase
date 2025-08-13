@@ -11,6 +11,7 @@
     background-position: center;
     background-repeat: no-repeat;
     justify-content: center;
+    overflow-y: auto;
 }
 
 .about-container {
@@ -64,4 +65,39 @@
     grid-area: picture;
     height: 200px;
     border-radius: 15px;
+}
+
+@media (max-width: 1680px) {
+    .mission-container {
+        margin-bottom: 2rem;
+    }
+
+.team-container {
+        margin-bottom: 2rem;
+    }
+
+.tools-container {
+        margin-bottom: 2rem;
+    }
+
+}
+
+@media (max-width: 1680px) {
+    .mission-container {
+        margin-bottom: 2rem;
+    }
+
+    .team-container {
+            margin-bottom: 2rem;
+        }
+
+    .tools-container {
+            margin-bottom: 2rem;
+        }
+
+    .about-container h2 {
+        position: relative;
+        font-size: 20px;
+        font-family: "Zen Dots", sans-serif;
+    }
 }

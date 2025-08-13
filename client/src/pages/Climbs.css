@@ -10,6 +10,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: auto;
 }
 
 .climbs-main {
@@ -19,7 +20,6 @@
         'filter climbs';
     grid-template-columns: 1fr 6.2fr;
     grid-template-rows: auto 1fr;
-    max-height: calc(100vh - 140px);
     width: 100%;
     column-gap: 0.08rem;
 }
@@ -128,7 +128,7 @@
 
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     padding: 2rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     
     gap: 1rem;
     background-color: #ffffff2f;
@@ -162,4 +162,38 @@
 
 .message {
     color: white;
+}
+
+@media (max-width: 1680px) {
+    .climbs-main {
+        grid-template-columns: 1fr 5.3fr;
+    }
+
+    .climbs-grid {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 1440px) {
+    .climbs-main {
+        grid-template-columns: 1fr 4.4fr;
+    }
+    
+    .climbs-grid {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 1280px) {
+    .climbs-main {
+        grid-template-columns: 1fr 3.8fr;
+        column-gap: 0.08rem;
+    }
+    
+    .climbs-grid {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
 }

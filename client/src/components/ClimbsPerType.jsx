@@ -32,7 +32,7 @@ export default function ClimbsPerTypeChart({ climbs }) {
     }));
     
     return(
-        <ResponsiveContainer width="100%" height={450}>
+        <ResponsiveContainer width="100%" height={500}>
             <PieChart>
                 <Pie
                     data={data}
@@ -40,7 +40,7 @@ export default function ClimbsPerTypeChart({ climbs }) {
                     nameKey="name"
                     cx="50%"
                     cy="50%"
-                    outerRadius={140}
+                    outerRadius={120}
                     fill="white"
                     label
                 >
