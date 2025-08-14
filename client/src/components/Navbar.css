@@ -67,3 +67,25 @@ ul li {
     height: 40px;
     margin-bottom: 5px;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .betabase-logo {
+        padding-left: 10px;
+        height: 30px;
+        margin-bottom: 5px;
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+    }
+
+    ul li {
+        margin-top: 4px;
+        padding-right: 0.6rem;
+        padding-left: 0.6rem;
+    }
+}

@@ -33,9 +33,17 @@ export default function ClimbStyleChart({ climbs }) {
     
     return(
         <ResponsiveContainer width="100%" height={250}>
-            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+            <RadarChart 
+                cx="50%" 
+                cy="50%" 
+                outerRadius="80%"
+                data={data}
+            >
                 <PolarGrid />
-                <PolarAngleAxis dataKey="type" stroke="white" />
+                <PolarAngleAxis 
+                    dataKey="type" 
+                    stroke="white" 
+                />
                 <PolarRadiusAxis
                     angle={30}
                     domain={[0, maxCount]}

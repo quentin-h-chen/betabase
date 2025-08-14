@@ -160,3 +160,49 @@ input::placeholder{
         gap: 0.1rem;
     }
 }
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar h2 {
+        font-size: 18px;
+    }
+
+    .filter-group {
+        padding-left: 0.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .select-grade {
+        font-size: 14px;
+    }
+
+    .checkbox-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .checkbox-group label{
+        font-size: 14px;
+    }
+    
+
+    input[type='text'], input[type='number'] {
+        font-size: 14px;
+    }
+
+    input[type='date'] {
+        font-size: 14px;
+    }
+
+    .filter-button {
+        font-size: 14px;
+        height: 2rem;
+        width: 11rem;
+        margin-top: 0.8rem;
+    }
+
+}

@@ -212,3 +212,26 @@
         font-size: 16px;
     }
 }
+
+@media (max-width: 768px) {
+    .climb-card {
+        width: 190px;
+        padding: 0.8rem;
+    }
+
+    .delete-button {
+        font-size: 14px;
+        height: 1.4rem;
+        margin-top: 8px;
+    }
+
+    .climb-card p{
+        font-size: 14px;
+        margin: 8px;
+    }
+    
+    .route-image {
+        height: 120px;
+    }
+
+}

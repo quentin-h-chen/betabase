@@ -182,17 +182,6 @@
     overflow-x: hidden;
 }
 
-.grade-per-location-chart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #000000c9;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    width: 30%;
-}
-
 .climbs-per-type-chart {
     display: flex;
     flex-direction: column;
@@ -209,5 +198,53 @@
 @media (max-width: 1680px) {
     .analysis-container {
         box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-container h2 {
+        font-size: 20px;
+    }
+
+    .chart-header {
+        font-size: 16px;
+    }
+
+    .climbing-level-chart {
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .climbs-per-grade-chart {
+        width: 100%;
+    }
+
+    .climbing-style-chart {
+        width: 100%;
+    }
+
+    .row-3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .personal-performance-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .climbs-per-gym-chart {
+        width: 100%;
+
+    }
+
+    .climbs-per-type-chart {
+        width: 100%;
     }
 }

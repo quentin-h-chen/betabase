@@ -32,7 +32,10 @@ export default function ClimbsPerTypeChart({ climbs }) {
     }));
     
     return(
-        <ResponsiveContainer width="100%" height={500}>
+        <ResponsiveContainer 
+            width="100%" 
+            height={ window.innerWidth <= 768 ? 400 : 500 }
+        >
             <PieChart>
                 <Pie
                     data={data}

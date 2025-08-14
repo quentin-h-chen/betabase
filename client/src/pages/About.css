@@ -68,21 +68,9 @@
 }
 
 @media (max-width: 1680px) {
-    .mission-container {
-        margin-bottom: 2rem;
+    .about-container {
+        margin-top: 6rem;
     }
-
-.team-container {
-        margin-bottom: 2rem;
-    }
-
-.tools-container {
-        margin-bottom: 2rem;
-    }
-
-}
-
-@media (max-width: 1680px) {
     .mission-container {
         margin-bottom: 2rem;
     }
@@ -99,5 +87,32 @@
         position: relative;
         font-size: 20px;
         font-family: "Zen Dots", sans-serif;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        margin-top: 2rem;
+        width: 70%;
+    }
+
+    .mission-container {
+        margin-bottom: 1rem;
+    }
+
+    .team-container {
+        margin-bottom: 1rem;
+    }
+
+    .tools-container {
+        margin-bottom: 1rem;
+    }
+    
+    .about-container h2 {
+        font-size: 20px;
+    }
+
+    .about-text {
+        font-size: 16px;
     }
 }

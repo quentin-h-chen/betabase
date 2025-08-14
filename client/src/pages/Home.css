@@ -107,3 +107,22 @@
     margin-right: 8px;
     display: inline-block;
 }
+
+@media (max-width: 768px) {
+    .features-container {
+        gap: 10px;
+    }
+
+    .feature h3 {
+        font-size: 14px;
+    }
+
+    .feature p {
+        font-size: 14px;
+    }
+
+    .material-symbols-outlined {
+        font-size: 1.5rem;
+        margin-right: 5px;
+    }
+}

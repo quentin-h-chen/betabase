@@ -130,7 +130,7 @@
     padding: 2rem;
     overflow-y: auto;
     
-    gap: 1rem;
+    gap: 2rem;
     background-color: #ffffff2f;
     border-radius: 10px;
     border: 2px solid #ffffff38;
@@ -195,5 +195,64 @@
     .climbs-grid {
         padding: 1.5rem;
         gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .climbs-main {
+        grid-template-columns: 1fr 2.4fr;
+    }
+    
+    .climbs-grid {
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    }
+
+    .climbs-header h2 {
+        font-size: 20px;
+        padding-right: 1rem;
+    }
+
+    .tags-container label {
+        font-size: 14px;
+    }
+
+    .green-tag-bar {
+        width: 2rem;
+        height: 0.7rem;
+        margin-left: 0.3rem;
+        margin-right: 1rem;
+    }
+
+    .red-tag-bar {
+        width: 2rem;
+        height: 0.7rem;
+        margin-left: 0.3rem;
+        margin-right: 1rem;
+    }
+
+    .blue-tag-bar {
+        width: 2rem;
+        height: 0.7rem;
+        margin-left: 0.3rem;
+        margin-right: 1rem;
+    }
+
+    .purple-tag-bar {
+        width: 2rem;
+        height: 0.7rem;
+        margin-left: 0.3rem;
+        margin-right: 1rem;
+    }
+
+    .black-tag-bar {
+        width: 2rem;
+        height: 0.7rem;
+        margin-left: 0.3rem;
+        margin-right: 1rem;
+    }
+
+    .climbs-controls button {
+        font-size: 18px;
+        width: 5rem;
     }
 }

@@ -34,3 +34,14 @@
         margin-bottom: 1rem;
     }
 }
+
+@media (max-width: 768px) {
+    .search-container {
+        margin-bottom: 2rem;
+        padding-left: 0.75rem;
+    }
+
+    .search-container input[placeholder='Enter Address'] {
+        font-size: 14px;
+    }
+}

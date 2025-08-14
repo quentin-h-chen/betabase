@@ -14,3 +14,9 @@
     font-size: clamp(2.5rem, 4vw, 90px);
 }
 
+@media (max-width: 768px) {
+    .climbing-level-header {
+        font-size: 16px;
+    }
+}
+
