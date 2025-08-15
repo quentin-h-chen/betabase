@@ -36,7 +36,7 @@ export default function ClimbsPerGradeChart({climbs}) {
             <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" stroke='white'/>
-            <YAxis allowDecimals={false} stroke='white'/>
+            <YAxis width={20} allowDecimals={false} stroke='white'/>
             <Tooltip />
             <Bar dataKey="climbs" fill="#FFC60B" />
             </BarChart>

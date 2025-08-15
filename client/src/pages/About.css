@@ -116,3 +116,23 @@
         font-size: 16px;
     }
 }
+
+@media (max-width: 480px) {
+    .about-container {
+        width: 90%;
+    }
+    .about-container h2 {
+        font-size: 18px;
+    }
+    .about-text {
+        font-size: 14px;
+    }
+
+    .founder-picture {
+        height: 150px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+}

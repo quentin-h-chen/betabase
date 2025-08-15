@@ -256,3 +256,34 @@
         width: 5rem;
     }
 }
+
+@media (max-width: 480px) {
+    .tags-container label {
+        display: none;
+    }
+
+    .climbs-controls button {
+        font-size: 18px;
+        width: 8rem;
+    }
+
+    .green-tag-bar {
+        display: none;
+    }
+
+    .red-tag-bar {
+        display: none;
+    }
+
+    .blue-tag-bar {
+        display: none;
+    }
+
+    .purple-tag-bar {
+        display: none;
+    }
+
+    .black-tag-bar {
+        display: none;
+    }
+}

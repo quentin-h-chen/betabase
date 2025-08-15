@@ -206,3 +206,9 @@ input::placeholder{
     }
 
 }
+
+@media (max-width: 480px) {
+    .sidebar {
+       
+    }
+}

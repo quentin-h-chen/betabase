@@ -11,6 +11,15 @@
     z-index: 10;
 }
 
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
 .navbar-content {
     display: flex;
     margin-left: auto; 
@@ -88,4 +97,38 @@ ul li {
         padding-right: 0.6rem;
         padding-left: 0.6rem;
     }
+}
+
+@media (max-width: 480px) {
+    .betabase-logo {
+        padding-left: 12px;
+        height: 25px;
+        margin-bottom: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        background-color: #000000;
+        width: max-content;
+        padding: 1rem;
+        border-radius: 5px;
+        z-index: 20;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
 }

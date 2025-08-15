@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Home() {
     // Hook for navigation
     const navigate = useNavigate(); 
-
+    
     return (
         <div className='home-page'>
             <div className='main-content'>
@@ -34,31 +34,37 @@ export default function Home() {
                 <div className='features-container'>
                     <div className='feature'>
                         <h3>
-                            <span class="material-symbols-outlined">check</span>
+                            <span className="material-symbols-outlined">check</span>
                             Track Sends
                         </h3>
-                        <p>Log climbs with grade, style, number of attempts, etc.</p>
+                        <p>
+                            <span className='short-text'>Log climbs</span>
+                            <span className='long-text'>Log climbs with grade, style,
+                                number of attempts, etc. 
+                            </span>
+                        </p>
                     </div>
+
                     <div className='feature'>
                         <h3>
-                            <span class="material-symbols-outlined">show_chart</span>
-                            Analyze Progress
+                            <span className="material-symbols-outlined">show_chart</span>
+                            Analze Progress
                         </h3>
-                        <p>See your grade trends and progress</p>
+                        <p>
+                            <span className='short-text'>See trends</span>
+                            <span className='long-text'>See your grade trends and progress</span>
+                        </p>
                     </div>
+
                     <div className='feature'>
                         <h3>
-                            <span class="material-symbols-outlined">play_arrow</span>
+                            <span className="material-symbols-outlined">play_arrow</span>
                             Review Beta
                         </h3>
-                        <p>Store and watch videos of your sends</p>
-                    </div>
-                    <div className='feature'>
-                        <h3>
-                            <span class="material-symbols-outlined">trophy</span>
-                            Reach Goals
-                        </h3>
-                        <p>Keep track of set and completed goals</p>
+                        <p>
+                            <span className='short-text'>Watch sends</span>
+                            <span className='long-text'>Store and watch videos of your sends</span>
+                        </p>
                     </div>
                 </div>
             </footer>

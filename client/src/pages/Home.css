@@ -91,6 +91,14 @@
     max-width: 240px;
 }
 
+.short-text {
+    display: none;
+}
+
+.long-text  {
+    display: inline;
+}
+
 .feature h3 {
     font-size: 20px;
     color: #FFC60B;
@@ -125,4 +133,23 @@
         font-size: 1.5rem;
         margin-right: 5px;
     }
+}
+
+@media (max-width: 480px) {
+    .features-container {
+        gap: 30px;
+    }
+
+    .feature p {
+        font-size: 14px;
+    }
+
+    .short-text {
+        display: inline;
+    }
+
+    .long-text  {
+        display: none;
+    }
+    
 }
