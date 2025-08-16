@@ -56,8 +56,7 @@ export default function Login() {
     return (
         <div className='login-page'>
             <div className='login-container'>
-                <h1>Welcome Back!</h1>
-                <p>Sign in with Email and Password</p>
+                <h1 className='welcome-back-header'>Welcome Back!</h1>
                 <div className='email-password-container'>
                     <p>Email: </p>
                     <input value={user} onChange={setUserHandler} />

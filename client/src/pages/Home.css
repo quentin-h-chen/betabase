@@ -140,6 +140,14 @@
         gap: 30px;
     }
 
+    .btn-primary {
+        height: 4rem;
+    }
+
+    .btn-secondary {
+        height: 4rem;
+    }
+
     .feature p {
         font-size: 14px;
     }
@@ -152,4 +160,22 @@
         display: none;
     }
     
+}
+
+@media (max-width: 428px) {
+    .hero-text {
+        font-size: 36px;
+    }
+    .features-container {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 390px) {
+    .hero-text {
+        font-size: 32px;
+    }
+    .features-container {
+        gap: 7px;
+    }
 }

@@ -45,8 +45,7 @@ export default function Register() {
     return (
         <div className='register-page'>
             <div className='register-container'>
-                <h1>Welcome to Betabase!</h1>
-                <p>Sign Up with Email and Password</p>
+                <h1 className='welcome-to-betabase-header'>Sign up for Betabase!</h1>
                 <div className='email-password-container'>
                     <p>Email: </p>
                     <input value={user} onChange={setUserHandler} />
@@ -56,7 +55,7 @@ export default function Register() {
                 <div className='seperator-block'>
                     <button onClick={submitHandler} className='submit-button'>Submit</button>
                     <p className='or-text'>or</p>
-                    <p className='sign-in-text'>Sign in with Google</p>
+                    <p className='sign-in-text'>Sign up with Google</p>
                 </div>
                 <GoogleSignIn />
             </div>

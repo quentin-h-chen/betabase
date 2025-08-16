@@ -122,17 +122,64 @@
         width: 90%;
     }
     .about-container h2 {
-        font-size: 18px;
+        margin-top: 0;
+        font-size: 30px;
     }
     .about-text {
         font-size: 14px;
     }
 
     .founder-picture {
-        height: 150px;
+        height: 180px;
     }
 
     .name {
         font-size: 16px;
+    }
+}
+
+@media (max-width: 428px) {
+    .about-container {
+        width: 90%;
+    }
+
+    .about-container h2 {
+        margin-top: 0;
+        font-size: 28px;
+    }
+
+    .about-text {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .founder-picture {
+        height: 140px;
+    }
+
+    .name {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 390px) {
+    .about-container h2 {
+        margin-top: 0;
+        font-size: 24px;
+    }
+
+    .about-text {
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .founder-picture {
+        height: 110px;
+    }
+
+    .name {
+        font-size: 14px;
+        margin-left: 5px;
     }
 }

@@ -235,3 +235,50 @@
     }
 
 }
+
+@media (max-width: 480px) {
+    .climb-card{
+        width: 170px;
+        padding: 1rem;
+    }
+
+    .note-modal-content {
+        width: 70%;
+    }
+}
+
+@media (max-width: 428px) {
+    .climb-card{
+        width: 150px;
+        padding: 0.8rem;
+    }
+    
+    .route-image {
+        height: 100px;
+    }
+
+    .climb-card p{
+        margin: 3px;
+    }
+}
+
+@media (max-width: 390px) {
+    .climb-card{
+        width: 140px;
+        padding: 0.5rem;
+    }
+    
+    .route-image {
+        height: 100px;
+    }
+
+    .climb-card p{
+        margin: 1px;
+    }
+
+    .delete-button {
+        font-size: 14px;
+        height: 1.5rem;
+        width: 90%;
+    }
+}

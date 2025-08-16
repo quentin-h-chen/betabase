@@ -102,12 +102,13 @@ ul li {
 @media (max-width: 480px) {
     .betabase-logo {
         padding-left: 12px;
-        height: 25px;
+        height: 30px;
         margin-bottom: 0;
     }
 
     .hamburger {
         display: block;
+        font-size: 30px;
     }
 
     .nav-links {
@@ -121,6 +122,10 @@ ul li {
         padding: 1rem;
         border-radius: 5px;
         z-index: 20;
+    }
+
+    .nav-links li a{
+        font-size: 20px;
     }
 
     .nav-links.open {

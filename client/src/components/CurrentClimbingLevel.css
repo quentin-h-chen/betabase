@@ -20,3 +20,14 @@
     }
 }
 
+@media (max-width: 480px) {
+    .climbing-level-header {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 428px) {
+    .climbing-level-header {
+        font-size: 18px;
+    }
+}

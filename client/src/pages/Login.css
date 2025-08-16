@@ -16,6 +16,7 @@
     background-color: white;
     border-radius: 3px;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.4);
+    width: 20rem;
 }
 
 .login-container {
@@ -64,4 +65,27 @@
     margin: 0;
     padding: 0;
     padding-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+    .login-page input{
+        height: 1.5rem;
+        width: max-content;
+    }
+
+    .welcome-back-header {
+        font-size: 28px;
+        padding: 0px;
+        margin: 0;
+    }
+
+    .sign-in-label {
+        text-align: center; 
+    }
+}
+
+@media (max-width: 390px) {
+    .welcome-back-header {
+        text-align: center;
+    }
 }
