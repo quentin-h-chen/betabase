@@ -25,3 +25,16 @@
     font-size: 16px;
     font-weight: bold;
 }
+
+@media (max-width: 480px) {
+    .location-container input[placeholder='Enter Address'] {
+        width: 7rem;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 390px) {
+        .location-container label{
+        font-size: 16px;
+    }
+}

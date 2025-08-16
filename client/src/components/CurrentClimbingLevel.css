@@ -14,3 +14,20 @@
     font-size: clamp(2.5rem, 4vw, 90px);
 }
 
+@media (max-width: 768px) {
+    .climbing-level-header {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .climbing-level-header {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 428px) {
+    .climbing-level-header {
+        font-size: 18px;
+    }
+}

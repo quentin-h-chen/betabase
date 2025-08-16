@@ -26,17 +26,13 @@ export default function Login() {
      * Handles user email input change and updates user state
      * @param {Object} e - input change event
      */
-    const setUserHandler = (e) => {
-        setUser(e.target.value);
-    }
+    const setUserHandler = (e) => { setUser(e.target.value); }
 
     /**
      * Handles password input change and updates pass state
      * @param {Object} e - input change event 
      */
-    const setPassHandler = (e) => {
-        setPass(e.target.value);
-    }
+    const setPassHandler = (e) => { setPass(e.target.value); }
 
     /**
      * Attempts to let user sign in via Firebase Auth
@@ -48,16 +44,32 @@ export default function Login() {
             await signInWithEmailAndPassword(auth, user, pass);
             alert("Signed in successfully");
             navigate('/home')
-        } catch (error) {
-            alert(error.message);
+        } catch (err) {
+            if (err.code === "auth/invalid-email") {
+                alert("Please enter a valid email address.")
+            }
+            else if (err.code === "auth/user-not-found") {
+                alert("No account found with this email.")
+            }
+            else if (err.code === "auth/wrong-password") {
+                alert("Incorrect password. Please try again.")
+            }
+            else if (err.code === "auth/too-many-requests") {
+                alert("Too many attempts. Please try again later.")
+            }
+            else if (err.code === "auth/invalid-credential") {
+                alert("Email or password is incorrect.")
+            }
+            else {
+                alert("Sign in failed: " + err.message)
+            }
         }
     }
 
     return (
         <div className='login-page'>
             <div className='login-container'>
-                <h1>Welcome Back!</h1>
-                <p>Sign in with Email and Password</p>
+                <h1 className='welcome-back-header'>Welcome Back!</h1>
                 <div className='email-password-container'>
                     <p>Email: </p>
                     <input value={user} onChange={setUserHandler} />

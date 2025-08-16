@@ -28,6 +28,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 100;
   width: max-content;
+  font-family: "Zen Dots", sans-serif;
 }
 
 .dropdown-menu button {
@@ -38,6 +39,7 @@
   padding: 0.3rem 0.5rem;
   cursor: pointer;
   font-size: 16px;
+  font-family: "Zen Dots", sans-serif;
 }
 
 .dropdown-menu button:hover {
@@ -48,4 +50,25 @@
   padding-left: 7px;
   margin: 0;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .avatar {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin-right: 0.6rem;
+    margin-left: 0.6rem;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width:480px) {
+  .dropdown-menu button {
+    font-size: 20px;
+  }
+
+  .dropdown-menu {
+    font-size: 20px;
+  }
 }

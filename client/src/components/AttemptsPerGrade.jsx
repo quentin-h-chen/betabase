@@ -40,7 +40,7 @@ export default function AvgAttemptsPerGradeChart({climbs}) {
             <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" stroke='white' />
-                <YAxis allowDecimals={false} stroke='white' />
+                <YAxis width={30} allowDecimals={false} stroke='white' />
                 <Tooltip />
                 <Bar dataKey="avgAttempts" fill="#EE4343" />
             </BarChart>

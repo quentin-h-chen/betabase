@@ -83,7 +83,6 @@ select {
 
 input[type='date'] {
     color: #929191;
-    
 }
 
 .first-row {
@@ -158,4 +157,114 @@ input[type='date'] {
 .submit-form:hover {
   transform: translateY(-1px);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+    .climb-form {
+        padding: 1rem;
+    }
+
+    .add-climb-header {
+        font-size: 28px;
+    }
+
+    .first-row {
+        display: flex;
+        gap: 1rem;
+        color: black;
+    }
+    .second-row {
+        gap: 1rem;
+    }
+
+    select {
+        font-size: 16px;
+    }
+
+    .inputs textarea {
+        font-size: 16px;
+        width: 24rem;
+    }
+
+    input[type='date'] {
+
+        width: 14.5rem;
+    }
+}
+
+@media (max-width: 428px) {
+    .climb-form {
+        padding: 0.8rem;
+    }
+
+    .climb-label {
+        font-size: 18px;
+    }
+
+    .first-row {
+        display: flex;
+        gap: 1rem;
+        color: black;
+    }
+    .second-row {
+        gap: 1rem;
+    }
+
+    select {
+        font-size: 16px;
+    }
+
+    .inputs textarea {
+        font-size: 16px;
+        width: 22.8rem;
+    }
+
+    input[type='date'] {
+        width: 13.4rem;
+    }
+}
+
+@media (max-width: 390px) {
+    .climb-form {
+        padding: 0.7rem;
+    }
+    
+
+    .climb-label {
+        font-size: 14px;
+    }
+
+    .attempts input{
+        font-size: 14px;
+        width: 5.6rem;
+    }
+
+
+    .video-url input {
+        width: 20rem;
+        font-size: 14px;
+    }
+
+    .first-row {
+        display: flex;
+        gap: 0.8rem;
+        color: black;
+    }
+    .second-row {
+        gap: 0.8rem;
+    }
+
+    select {
+        font-size: 14px;
+    }
+
+    .inputs textarea {
+        font-size: 14px;
+        width: 20rem;
+    }
+
+    input[type='date'] {
+        width: 11rem;
+        font-size: 14px;
+    }
 }

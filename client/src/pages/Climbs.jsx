@@ -4,7 +4,7 @@ import ClimbCard from '../components/ClimbCard';
 import { useNavigate } from 'react-router-dom';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /**
  * Climbs Page
@@ -26,6 +26,15 @@ export default function Climbs({ climbs, setClimbs }) {
 
     // Stores filter settings
     const [filter, setFilter] = useState({});
+    const [filterModalOpen, setFilterModalOpen] = useState(false);
+
+    // Detect phone screen sizes
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 480);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     /**
      * Handles deletion of climb document in Firestore by document ID
@@ -48,6 +57,7 @@ export default function Climbs({ climbs, setClimbs }) {
     const handleFilterChange = (newFilter) => {
         console.log("received filter", newFilter);
         setFilter(newFilter)
+        if (isMobile) setFilterModalOpen(false);
     }
 
     /**
@@ -113,11 +123,34 @@ export default function Climbs({ climbs, setClimbs }) {
                         <div className='black-tag-bar' />
                     </div>
                     <div className='climbs-controls'>
+                        {/* Mobile Filter Button */}
+                        {isMobile && (
+                            <button className='open-filter' onClick={() => setFilterModalOpen(true)}>
+                                <span class="material-symbols-outlined">
+                                    filter_list
+                                </span>
+                            </button>
+                        )}
                         <button onClick={() => navigate('/add-climb')}>+</button>
                     </div>
                 </div>
 
-                <SidebarFilter onFilter={handleFilterChange} />
+                {/* Desktop Sidebar Filter */}
+                {!isMobile && <SidebarFilter onFilter={handleFilterChange} />}
+
+
+                {/* Mobile Filter Modal */}
+                {isMobile && filterModalOpen && (
+                    <div className='modal-overlay' onClick={() => setFilterModalOpen(false)}>
+                        <div className="modal-content" onClick={e => e.stopPropagation()}>
+                            <button className="close-btn" onClick={() => setFilterModalOpen(false)}>
+                                &times;
+                            </button>
+                            <SidebarFilter onFilter={handleFilterChange} />
+                        </div>
+                    </div>
+                )}
+
 
                 <div className='climbs-grid'>
                     {filteredClimbs && filteredClimbs.length > 0 ? (

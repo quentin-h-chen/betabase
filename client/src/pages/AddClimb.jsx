@@ -116,7 +116,7 @@ export default function AddClimb({ onAddClimb }) {
                     </div>
 
                     <div className='video-url'>
-                        <label className='climb-label'>YouTube Video URL (Unlisted or Public YouTube Link):</label>
+                        <label className='climb-label'>YouTube URL (Unlisted/Public Video):</label>
                         <input 
                             type='url'
                             placeholder='https://www.youtube.com/watch?v=...'

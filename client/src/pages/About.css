@@ -11,6 +11,7 @@
     background-position: center;
     background-repeat: no-repeat;
     justify-content: center;
+    overflow-y: auto;
 }
 
 .about-container {
@@ -64,4 +65,121 @@
     grid-area: picture;
     height: 200px;
     border-radius: 15px;
+}
+
+@media (max-width: 1680px) {
+    .about-container {
+        margin-top: 6rem;
+    }
+    .mission-container {
+        margin-bottom: 2rem;
+    }
+
+    .team-container {
+            margin-bottom: 2rem;
+        }
+
+    .tools-container {
+            margin-bottom: 2rem;
+        }
+
+    .about-container h2 {
+        position: relative;
+        font-size: 20px;
+        font-family: "Zen Dots", sans-serif;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        margin-top: 2rem;
+        width: 70%;
+    }
+
+    .mission-container {
+        margin-bottom: 1rem;
+    }
+
+    .team-container {
+        margin-bottom: 1rem;
+    }
+
+    .tools-container {
+        margin-bottom: 1rem;
+    }
+    
+    .about-container h2 {
+        font-size: 20px;
+    }
+
+    .about-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        width: 90%;
+    }
+    .about-container h2 {
+        margin-top: 0;
+        font-size: 30px;
+    }
+    .about-text {
+        font-size: 14px;
+    }
+
+    .founder-picture {
+        height: 180px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 428px) {
+    .about-container {
+        width: 90%;
+    }
+
+    .about-container h2 {
+        margin-top: 0;
+        font-size: 28px;
+    }
+
+    .about-text {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .founder-picture {
+        height: 140px;
+    }
+
+    .name {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 390px) {
+    .about-container h2 {
+        margin-top: 0;
+        font-size: 24px;
+    }
+
+    .about-text {
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .founder-picture {
+        height: 110px;
+    }
+
+    .name {
+        font-size: 14px;
+        margin-left: 5px;
+    }
 }

@@ -35,14 +35,25 @@ export default function ClimbsPerGymChart({climbs}) {
     }));
 
     // Enable chart height to be set dynamically
-    const chartHeight = data.length * 50;
+    const chartHeight = data.length * 80;
 
     return (
-        <ResponsiveContainer width="100%" height={chartHeight > 400 ? chartHeight : 400}>
+        <ResponsiveContainer width="100%" height={chartHeight > 500 ? chartHeight : 500}>
             <BarChart data={data} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" stroke="#888" />
-            <XAxis allowDecimals={false} type="number" stroke="white" />
-            <YAxis dataKey="name" type="category" stroke="white" width={'auto'}/>
+            <XAxis 
+                allowDecimals={false} 
+                type="number" 
+                stroke="white" 
+                tick={{ fontSize: window.innerWidth <= 768 ? 14 : 16 }}
+            />
+            <YAxis 
+                dataKey="name" 
+                type="category" 
+                stroke="white" 
+                width={'auto'}
+                tick={{ fontSize: window.innerWidth <= 768 ? 14 : 16 }}
+            />
             <Tooltip />
             <Bar dataKey="climbs" fill="#946eecff" />
             </BarChart>
