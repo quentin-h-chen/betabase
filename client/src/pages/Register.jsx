@@ -12,7 +12,7 @@ import GoogleSignIn from '../components/GoogleSignIn';
  */
 
 export default function Register() {
-    // State variables for user email and password
+    // State variables for user email, password, and errors in registration
     const [user, setUser] = useState("")
     const [pass, setPass] = useState("")
     
@@ -20,17 +20,13 @@ export default function Register() {
      * Handles user email input change and updates user state
      * @param {Object} e - input change event
      */
-    const setUserHandler = (e) => {
-        setUser(e.target.value)
-    }
+    const setUserHandler = (e) => { setUser(e.target.value) }
 
     /**
      * Handles password input change and updates pass state
      * @param {Object} e - input change event
      */
-    const setPassHandler = (e) => {
-        setPass(e.target.value)
-    }
+    const setPassHandler = (e) => { setPass(e.target.value) }
 
     /**
      * Attempts to submit form and register user via Firebase Auth
@@ -38,9 +34,24 @@ export default function Register() {
      * Firebase throws error
      */
     const submitHandler = async () => {
-        await createUserWithEmailAndPassword(auth, user, pass);
-        alert("You have been registered successfully!")
-    }
+        try {
+            await createUserWithEmailAndPassword(auth, user, pass);
+            alert("You have been registered successfully!");
+        } catch (err) {
+            if (err.code === "auth/email-already-in-use") {
+                alert("This email is already registered. Please try logging in.");
+            }
+            else if (err.code === "auth/invalid-email") {
+                alert("Invalid email. Please enter a valid email.");
+            }
+            else if (err.code === "auth/weak-password") {
+                alert("Password is too weak. Please use at least 6 characters.");
+            }
+            else {
+                alert("Registration failed: " + err.message);
+            }
+        }
+    };
 
     return (
         <div className='register-page'>
