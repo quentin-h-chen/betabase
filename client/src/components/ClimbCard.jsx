@@ -53,9 +53,9 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
 
     // Assign default images to each climb type
     const climbTypeToImage = {
-        overhang: "/public/default-overhang.jpg",
-        roof: "/public/default-roof.jpg",
-        slab: "/public/default-slab.jpg",
+        overhang: "/default-overhang.jpg",
+        roof: "/default-roof.jpg",
+        slab: "/default-slab.jpg",
     };
 
     const imageUrl = climbTypeToImage[type.toLowerCase()] 
