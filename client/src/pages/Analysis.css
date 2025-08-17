@@ -262,6 +262,21 @@
     .chart-header {
         font-size: 20px;
     }
+
+    .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translateX(-30%);
+    margin-top: 6px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 9999;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 }
 
 @media (max-width: 428px) {
