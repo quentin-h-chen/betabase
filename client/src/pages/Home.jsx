@@ -48,7 +48,7 @@ export default function Home() {
                     <div className='feature'>
                         <h3>
                             <span className="material-symbols-outlined">show_chart</span>
-                            Analze Progress
+                            Analyze Progress
                         </h3>
                         <p>
                             <span className='short-text'>See trends</span>
