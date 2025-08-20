@@ -17,7 +17,7 @@ export default function About() {
                             <h2>The Mission</h2>
                             <p className='about-text'>
                                 Track your indoor bouldering progress with ease. Store information about
-                                any routes and videos showing your beta. Analyze your progression
+                                your routes and videos showing the beta. Analyze your progression
                                 and see how far you've come since the start of your journey with Betabase!
                             </p>
                         </div>

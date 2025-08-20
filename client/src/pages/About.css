@@ -69,7 +69,7 @@
 
 @media (max-width: 1680px) {
     .about-container {
-        margin-top: 6rem;
+        margin-top: 3rem;
     }
     .mission-container {
         margin-bottom: 2rem;
@@ -87,12 +87,6 @@
         position: relative;
         font-size: 20px;
         font-family: "Zen Dots", sans-serif;
-    }
-}
-
-@media (max-width: 1280px) {
-    .about-container {
-        margin-top: 1rem;
     }
 }
 
