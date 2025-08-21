@@ -58,9 +58,8 @@ export default function ProfileDropdown() {
     const handleSignOut = async () => {
         try {
             await signOut(auth);
-            alert('Signed out successfully');
         } catch (error) {
-            alert(error.message);
+            console.error("Sign out error:", error);
         }
         setOpen(false);
     };

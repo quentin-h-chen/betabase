@@ -42,7 +42,6 @@ export default function Login() {
     const submitHandler = async() => {
         try {
             await signInWithEmailAndPassword(auth, user, pass);
-            alert("Signed in successfully");
             navigate('/home')
         } catch (err) {
             if (err.code === "auth/invalid-email") {

@@ -25,12 +25,9 @@ export default function GoogleSignIn() {
             // Trigger popup
             const result = await signInWithPopup(auth, googleProvider);
             const user = result.user;
-            alert(`Welcome ${user.displayName}!`);
-            console.log(user);
             navigate('/home')
         } catch (error) {
             console.log('Google Sign-In Error', error);
-            alert(error.message);
         }
     }
 
