@@ -15,9 +15,10 @@ import { useNavigate } from 'react-router-dom';
  */
 
 export default function Login() {
-    // State variables for username and password
+    // State variables for username, password, and errors
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
 
     // React Router hook for navigation
     const navigate = useNavigate();
@@ -40,27 +41,28 @@ export default function Login() {
      * Unsucessful: displays error message
      */
     const submitHandler = async() => {
+        setError("");
         try {
             await signInWithEmailAndPassword(auth, user, pass);
             navigate('/home')
         } catch (err) {
             if (err.code === "auth/invalid-email") {
-                alert("Please enter a valid email address.")
+                setError("Please enter a valid email address.");
             }
             else if (err.code === "auth/user-not-found") {
-                alert("No account found with this email.")
+                setError("No account found with this email.");
             }
             else if (err.code === "auth/wrong-password") {
-                alert("Incorrect password. Please try again.")
+                setError("Incorrect password. Please try again.");
             }
             else if (err.code === "auth/too-many-requests") {
-                alert("Too many attempts. Please try again later.")
+                setError("Too many attempts. Try again later.");
             }
             else if (err.code === "auth/invalid-credential") {
-                alert("Email or password is incorrect.")
+                setError("Email or password is incorrect.");
             }
             else {
-                alert("Sign in failed: " + err.message)
+                setError("Sign in failed: " + err.message);
             }
         }
     }
@@ -75,8 +77,11 @@ export default function Login() {
                     <p>Password: </p>
                     <input value={pass} onChange={setPassHandler} />
                 </div>
+
+                {error && <p className='login-error-message'>{error}</p>}
+
                 <div className='seperator-block'>
-                    <button onClick={submitHandler} className='submit-button'>Submit</button>
+                    <button onClick={submitHandler} className='submit-button'>Sign In</button>
                     <p className='or-text'>or</p>
                     <p className='sign-in-text'>Sign in with Google</p>
                 </div>

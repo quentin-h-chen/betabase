@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig';
 import GoogleSignIn from '../components/GoogleSignIn';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Register Page
@@ -13,8 +14,10 @@ import GoogleSignIn from '../components/GoogleSignIn';
 
 export default function Register() {
     // State variables for user email, password, and errors in registration
-    const [user, setUser] = useState("")
-    const [pass, setPass] = useState("")
+    const [user, setUser] = useState("");
+    const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
     
     /**
      * Handles user email input change and updates user state
@@ -34,21 +37,22 @@ export default function Register() {
      * Firebase throws error
      */
     const submitHandler = async () => {
+        setError("");
         try {
             await createUserWithEmailAndPassword(auth, user, pass);
-            alert("You have been registered successfully!");
+            navigate('/home');
         } catch (err) {
             if (err.code === "auth/email-already-in-use") {
-                alert("This email is already registered. Please try logging in.");
+                setError("This email is already registered.");
             }
             else if (err.code === "auth/invalid-email") {
-                alert("Invalid email. Please enter a valid email.");
+                setError("Invalid email. Please enter a valid email.");
             }
             else if (err.code === "auth/weak-password") {
-                alert("Password is too weak. Please use at least 6 characters.");
+                setError("Make password at least 6 characters.");
             }
             else {
-                alert("Registration failed: " + err.message);
+                setError("Registration failed: " + err.message);
             }
         }
     };
@@ -63,10 +67,13 @@ export default function Register() {
                     <p>Password: </p>
                     <input value={pass} onChange={setPassHandler} />
                 </div>
+
+                {error && <p className='register-error-message'>{error}</p>}
+
                 <div className='seperator-block'>
-                    <button onClick={submitHandler} className='submit-button'>Submit</button>
+                    <button onClick={submitHandler} className='submit-button'>Sign Up</button>
                     <p className='or-text'>or</p>
-                    <p className='sign-in-text'>Sign up with Google</p>
+                    <p className='sign-in-text'>Sign in with Google</p>
                 </div>
                 <GoogleSignIn />
             </div>
