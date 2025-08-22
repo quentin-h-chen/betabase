@@ -31,7 +31,7 @@ export default function AvgAttemptsPerGradeChart({climbs}) {
         const avgAttempts = gradeData ? Number((gradeData.totalAttempts / gradeData.count).toFixed(2)) : 0;
         return {
             name: grade,
-            "Average of Attempts": avgAttempts
+            "Average Attempts": avgAttempts
         };
     });
 
@@ -42,7 +42,7 @@ export default function AvgAttemptsPerGradeChart({climbs}) {
                 <XAxis dataKey="name" stroke='white' />
                 <YAxis width={30} allowDecimals={false} stroke='white' />
                 <Tooltip />
-                <Bar dataKey="Average of Attempts" fill="#EE4343" />
+                <Bar dataKey="Average Attempts" fill="#EE4343" />
             </BarChart>
         </ResponsiveContainer>
 
