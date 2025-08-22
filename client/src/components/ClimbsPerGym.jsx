@@ -31,7 +31,7 @@ export default function ClimbsPerGymChart({climbs}) {
      */
     const data = Object.entries(gymCount).map(([gym, count]) => ({
         name: gym,
-        climbs: count,
+        Climbs: count,
     }));
 
     // Enable chart height to be set dynamically
@@ -55,7 +55,7 @@ export default function ClimbsPerGymChart({climbs}) {
                 tick={{ fontSize: window.innerWidth <= 768 ? 14 : 16 }}
             />
             <Tooltip />
-            <Bar dataKey="climbs" fill="#946eecff" />
+            <Bar dataKey="Climbs" fill="#946eecff" />
             </BarChart>
         </ResponsiveContainer>
     )

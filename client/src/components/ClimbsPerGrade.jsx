@@ -28,7 +28,7 @@ export default function ClimbsPerGradeChart({climbs}) {
      */
     const data = gradeScale.map(grade => ({
         name: grade,
-        climbs: gradeCount[grade] || 0
+        Climbs: gradeCount[grade] || 0
     }));
 
     return (
@@ -38,7 +38,7 @@ export default function ClimbsPerGradeChart({climbs}) {
             <XAxis dataKey="name" stroke='white'/>
             <YAxis width={20} allowDecimals={false} stroke='white'/>
             <Tooltip />
-            <Bar dataKey="climbs" fill="#FFC60B" />
+            <Bar dataKey="Climbs" fill="#FFC60B" />
             </BarChart>
         </ResponsiveContainer>
     );
