@@ -28,7 +28,7 @@ export default function About() {
                                 <img src='/qc2.JPEG' className='founder-picture'></img>
                                 <h3 className='name'>Quentin Chen</h3>
                                 <p className='about-text'>
-                                    Creator of Betabase and a Linguistics & Computer Science Major at UCLA. Started climbing in 2024 and fell in love
+                                    Creator of Betabase and a Computer Science & Linguistics Major at UCLA. Started climbing in 2024 and fell in love
                                     with the sport through Hanger 18 and Sender One in Orange County, California.
                                 </p>
                                 <p className='about-text'>Founder | Developer | Designer</p>
