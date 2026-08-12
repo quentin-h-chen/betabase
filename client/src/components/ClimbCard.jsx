@@ -89,21 +89,30 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
                 <div className='note-modal' onClick={() => setIsModalOpen(false)}>
                     <div className='note-modal-content' onClick={(e) => e.stopPropagation()}>
                         <div className='note-modal-text'>
-                            <p className='climb-notes-label'>More</p> 
+                            <p><strong>Grade:</strong> {grade}</p>
+                            <p><strong>Type:</strong> {type}</p>
+                            <p><strong># of Attempts:</strong> {attempts}</p>   
                             <p><strong>Location:</strong> {location}</p>
+                            <p><strong>Date:</strong> {date}</p>
                             <p><strong>Note:</strong> {note}</p>
                         </div>
-                        {videoID && (
-                            <div className='video-container'>
+                        {videoID ? (
+                            <div className="video-container">
                                 <iframe
                                     src={`https://www.youtube.com/embed/${videoID}`}
-                                    title='Your Beta'
+                                    title="Your Beta"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />
                             </div>
-                        )}
-                        <button onClick={() => setIsModalOpen(false)}>Close</button>
+                        ) : (
+                <div className="video-placeholder">
+                    No video of climb added yet.
+                </div>
+            )}
+                        <button className="modal-close-button" onClick={() => setIsModalOpen(false)}>
+                            x
+                        </button>
                     </div>
                 </div>
                 

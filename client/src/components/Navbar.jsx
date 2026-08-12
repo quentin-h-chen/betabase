@@ -39,10 +39,10 @@ export default function Navbar() {
                         Climbs
                     </NavLink></li>
                     <li><NavLink 
-                        to="/analysis" className={({ isActive }) => isActive ? 'active' : ''}
+                        to="/analytics" className={({ isActive }) => isActive ? 'active' : ''}
                         onClick={() => setMenuOpen(false)}
                     >
-                        Analysis
+                        Analytics
                     </NavLink></li>
                     <li><NavLink 
                         to="/about" className={({ isActive }) => isActive ? 'active' : ''}
