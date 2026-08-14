@@ -43,7 +43,7 @@ export default function App() {
   }, []);
 
   const handleAddClimb = (newClimb) => {
-      setClimbs((prev) => [...prev, newClimb]);
+      setClimbs((prev) => [newClimb, ...prev]);
     };
 
   return (

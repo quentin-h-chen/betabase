@@ -36,6 +36,13 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
 
     // Extract video ID from passed videoUrl prop
     const videoID = getYouTubeID(videoUrl);
+
+    // Truncate a text to the first `n` words with ellipsis
+    const truncateWords = (text, n = 3) => {
+        if (!text) return '';
+        const words = text.trim().split(/\s+/);
+        return words.length > n ? words.slice(0, n).join(' ') + '...' : text;
+    }
     
     /**
      * Return CSS class name based on grade of climb card
@@ -62,25 +69,32 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
     
     return (
         <>
-            <div className={`climb-card ${gradeClass}`} onClick={() => setIsModalOpen(true)}>
+            <div className="climb-card" onClick={() => setIsModalOpen(true)}>
                 <img src={imageUrl} alt={`${type} climb`} className='route-image' />
                 <div className='card-info'>
-                    <p><strong>Grade:</strong> {grade}</p>
-                    <p><strong>Type:</strong> {type}</p>
-                    <p><strong># of Attempts:</strong> {attempts}</p>
-                    <p className='location'><strong>Location:</strong> {location.trim()}</p>
-                    <p><strong>Date:</strong> {date}</p>
-                    <p className='note'><strong>Note:</strong> {note}</p>
+                    <div className={`grade-badge ${gradeClass}`}>{grade}</div>
+                    <p className='type-field'><strong>Type</strong> <span className="value">{type}</span></p>
+                    <p className='attempts-field'><strong>Attempts</strong> <span className="value">{attempts}</span></p>
+                    <p className='location'><strong>Location</strong> <span className="value">{location.trim()}</span></p>
+                    <p className='date-field'><strong>Date</strong> <span className="value">{date}</span></p>
+                    <p className='note'><strong>Note</strong> <span className="value">{note || 'None'}</span></p>
                 </div>
                 <div className='delete'>
                     <button 
                         className='delete-button' 
                         onClick={(e) => {
                             e.stopPropagation();
-                            onDelete();
+                            console.log('ClimbCard delete clicked for', { grade, type, attempts, location, date });
+                            try { onDelete(); } catch (err) { console.error('onDelete error', err); }
                         }}
+                        aria-label="Delete Climb"
                     >
-                        Delete
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
