@@ -124,18 +124,17 @@
 
 .climbs-grid {
     grid-area: climbs;
-    display: grid;
-
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 2rem;
+    min-height: 220px;
     overflow-y: auto;
-    
-    gap: 2rem;
-    background-color: #ffffff2f;
-    border-radius: 10px;
-    border: 2px solid #ffffff38;
-    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
-    scrollbar-color: #00000079 #535353c9;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    scrollbar-color: #00000079 transparent;
 }
 
 .climbs-grid::-webkit-scrollbar{
@@ -153,15 +152,21 @@
 }
 
 .no-climbs {
-    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 220px;
     display: flex;
-    justify-self: center;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 18px;
+    margin-top: 10%;
 }
 
 .message {
-    color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.623);
+    margin: 0;
 }
 
 .open-filter {

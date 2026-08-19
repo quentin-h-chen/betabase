@@ -13,7 +13,7 @@ export default function Analysis({ climbs }) {
     return (
         <div className='analysis-page'>
             <div className='title-container'>
-                <h2>Personal Analysis</h2>
+                <h2>Analytics</h2>
             </div>
             <div className='analysis-container'>
                <h3 className='category-header'>Performance</h3>
@@ -34,7 +34,7 @@ export default function Analysis({ climbs }) {
                             ℹ️
                             {showToolTip && (
                                 <div className='tooltip'>
-                                    Highest grade with 3+ routes completed
+                                    Highest grade w/ 3+ routes completed
                                 </div>
                             )}
                         </span>

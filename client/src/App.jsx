@@ -43,7 +43,7 @@ export default function App() {
   }, []);
 
   const handleAddClimb = (newClimb) => {
-      setClimbs((prev) => [...prev, newClimb]);
+      setClimbs((prev) => [newClimb, ...prev]);
     };
 
   return (
@@ -53,7 +53,7 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/climbs' element={<Climbs climbs={climbs} setClimbs={setClimbs} />} />
-        <Route path='/analysis' element={<Analysis climbs={climbs} />} />
+        <Route path='/analytics' element={<Analysis climbs={climbs} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/add-climb' element={<AddClimb onAddClimb={handleAddClimb} />} />
