@@ -9,8 +9,7 @@ import Register from './pages/Register';
 import AddClimb from './pages/AddClimb';
 import { useEffect, useState } from 'react';
 import About from './pages/About';
-import { db, auth } from './firebase/firebaseConfig';
-import { query, where, collection, getDocs } from 'firebase/firestore';
+import { auth } from './firebase/firebaseConfig'
 import { onAuthStateChanged } from 'firebase/auth';
 
 export default function App() {
@@ -19,21 +18,30 @@ export default function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
         if (user) {
-          try {
-            const climbsQuery = query(
-              collection(db, "climbs"),
-              where("userId", "==", user.uid)
-            );
-            const querySnapshot = await getDocs(climbsQuery);
-            const climbsData = querySnapshot.docs.map(doc => ({
-              id: doc.id,
-              ...doc.data()
-            }));
+          try { 
+            const token = await user.getIdToken();
+            const response = await fetch('http://localhost:3000/api/climbs', {
+              headers: {
+                'Authorization': `Bearer ${token}`
+              }
+            });
+        
+            // Check if BFF returned error
+            if (!response.ok) {
+              throw new Error('Failed to fetch climbs');
+            }
+
+            // Convert BFF's json response into JS
+            const climbsData = await response.json();
+
+            // Store climbs in React state
             setClimbs(climbsData);
+
           } catch (error) {
             console.error("Error fetching climbs:", error);
             setClimbs([]);
           }
+        
         } else {
           setClimbs([]);
         }

@@ -18,3 +18,5 @@ build/
 
 # Vite dev cache
 .vite/
+
+server/service-account-key.json
