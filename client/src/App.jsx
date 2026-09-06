@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AddClimb from './pages/AddClimb';
+import EditClimb from './pages/EditClimb';
 import { useEffect, useState } from 'react';
 import About from './pages/About';
 import { auth } from './firebase/firebaseConfig'
@@ -53,6 +54,10 @@ export default function App() {
   const handleAddClimb = (newClimb) => {
       setClimbs((prev) => [newClimb, ...prev]);
     };
+  
+  const handleEditClimb = (updatedClimb) => {
+      setClimbs((prev) => prev.map((climb) => (climb.id === updatedClimb.id ? updatedClimb : climb)));
+  }
 
   return (
     <div className='content'>
@@ -65,6 +70,7 @@ export default function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/add-climb' element={<AddClimb onAddClimb={handleAddClimb} />} />
+        <Route path='/edit-climb/:id' element={<EditClimb onEditClimb={handleEditClimb} />} />
         <Route path='/about' element={<About />} />
       </Routes>
     </div>

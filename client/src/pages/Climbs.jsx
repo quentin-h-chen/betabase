@@ -69,6 +69,14 @@ export default function Climbs({ climbs, setClimbs }) {
     };
 
     /**
+     * Handles editing climb through backend API
+     * @param {string} climb - climb object to be edited
+     */
+    const handleEdit = (climb) => {
+        navigate(`/edit-climb/${climb.id}`, { state: { climb } });
+    }
+
+    /**
      * Handles updated filter object from SidebarFilter
      * @param {Object} newFilter - Filter settings from SidebarFilter component
      */
@@ -182,6 +190,7 @@ export default function Climbs({ climbs, setClimbs }) {
                                 date={climb.date}
                                 note={climb.note || "None"} 
                                 videoUrl={climb.videoUrl}
+                                onEdit={() => handleEdit(climb)}
                                 onDelete={()=> handleDelete(climb.id)}
                             />
                         ))

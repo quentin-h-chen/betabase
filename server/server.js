@@ -63,6 +63,55 @@ app.post('/api/climbs', async (req, res) => {
     }
 });
 
+// PATCH climb request
+app.patch('/api/climbs/:id', async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const token = authHeader.split('Bearer ')[1];
+        const decodedToken = await auth.verifyIdToken(token);
+        const userId = decodedToken.uid;
+
+        const climbId = req.params.id;
+        const climbRef = db.collection('climbs').doc(climbId);
+        const climbSnapshot = await climbRef.get();
+
+        if (!climbSnapshot.exists) {
+            return res.status(404).json({ error: 'Climb not found' });
+        }
+
+        const climbData = climbSnapshot.data();
+
+        if (climbData.userId !== userId) {
+            return res.status(403).json({ error: 'Permission Denied' });
+        }
+
+        const { grade, type, attempts, location, date, note, videoUrl } = req.body;
+
+        const updates = {
+            grade,
+            type,
+            attempts,
+            location,
+            date,
+            note,
+            videoUrl
+        };
+
+        await climbRef.update(updates);
+        const updatedClimb = { id: climbId, ...climbData, ...updates };
+
+        res.status(200).json(updatedClimb);
+    
+        } catch (error) {
+            console.error('Error updating climb:', error);
+            return res.status(500).json({ error: 'Failed to update climb' });
+    }                       
+});
+
 // DELETE climb request
 app.delete('/api/climbs/:id', async (req, res) => {
     try {
