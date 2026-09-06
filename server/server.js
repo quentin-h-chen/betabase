@@ -34,6 +34,70 @@ app.get('/api/climbs', async (req, res) => {
     }
 });
 
+// POST climb request
+app.post('/api/climbs', async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const token = authHeader.split('Bearer ')[1];
+        
+        const decodedToken = await auth.verifyIdToken(token);
+        const userId = decodedToken.uid;
+
+        const newClimb = {
+            ...req.body,
+            userId: userId,
+        }
+
+        const docRef = await db.collection('climbs').add(newClimb);
+        const createdClimb = { id: docRef.id, ...newClimb };
+        res.status(201).json(createdClimb);
+
+    } catch (error) {
+        console.error('Error adding climb:', error);
+        return res.status(500).json({ error: 'Failed to add climb' });
+    }
+});
+
+// DELETE climb request
+app.delete('/api/climbs/:id', async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;   
+
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const token = authHeader.split('Bearer ')[1];
+        const decodedToken = await auth.verifyIdToken(token);
+        const userId = decodedToken.uid;
+        
+        const climbId = req.params.id;
+        const climbRef = db.collection('climbs').doc(climbId);
+        const climbSnapshot = await climbRef.get();
+
+        if (!climbSnapshot.exists) {
+            return res.status(404).json({ error: 'Climb not found' });
+        }
+
+        const climbData = climbSnapshot.data();
+        if (climbData.userId !== userId) {
+            return res.status(403).json({ error: 'Permission Denied' });
+        }
+
+        await climbRef.delete();
+
+        res.status(200).json({ message: 'Climb deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting climb:', error);
+        return res.status(500).json({ error: 'Failed to delete climb' });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`BFF running on http://localhost:${PORT}`);
 });

@@ -2,8 +2,7 @@ import './AddClimb.css';
 import LocationAutocompleteForm from '../components/LocationAutocompleteForm';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { db, auth } from '../firebase/firebaseConfig';
-import { collection, addDoc } from 'firebase/firestore';
+import { auth } from '../firebase/firebaseConfig';
 
 export default function AddClimb({ onAddClimb }) {
     const [grade, setGrade] = useState('');
@@ -21,7 +20,7 @@ export default function AddClimb({ onAddClimb }) {
         
         const user = auth.currentUser;
         if (!user) {
-            alert("You must be logged in to add a climb!");
+            alert("You must be logged in to add a climb");
             return;
         }
 
@@ -32,7 +31,6 @@ export default function AddClimb({ onAddClimb }) {
             location, 
             date, 
             note, 
-            userId: user.uid,
         };
 
         // Add videoUrl if user entered link
@@ -41,15 +39,29 @@ export default function AddClimb({ onAddClimb }) {
         }
 
         try {
-            const docRef = await addDoc(collection(db, "climbs"), newClimb);
+            const token = await user.getIdToken();
+            const response = await fetch('http://localhost:3000/api/climbs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(newClimb)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to add climb');
+            }
+
+            const createdClimb = await response.json();
 
             if (onAddClimb) {
-                onAddClimb({ id: docRef.id, ...newClimb });
+                onAddClimb(createdClimb);
             }
 
             navigate('/climbs');
         } catch (error) {
-            console.error("Error adding climb to Firestore:", error);
+            console.error("Error adding climb:", error);
         }
     };
 

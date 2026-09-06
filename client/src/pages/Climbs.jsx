@@ -2,8 +2,7 @@ import './Climbs.css';
 import SidebarFilter from '../components/SidebarFilter';
 import ClimbCard from '../components/ClimbCard';
 import { useNavigate } from 'react-router-dom';
-import { doc, deleteDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebaseConfig';
+import { auth } from '../firebase/firebaseConfig';
 import { useState, useEffect } from 'react';
 
 /**
@@ -11,7 +10,7 @@ import { useState, useEffect } from 'react';
  * 
  * Displays list of users climbs in 'climb cards' and allows filtering
  * - Filter by grade, type, attempts, location, and date
- * - Delete climbs from Firestore
+ * - Delete climbs through backend API
  * - Plus button to add climb (navigates to Add Climb Page with add climb form)
  * 
  * Props
@@ -21,7 +20,7 @@ import { useState, useEffect } from 'react';
 
 export default function Climbs({ climbs, setClimbs }) {
     
-    // Reac Router hook for navigation
+    // React Router hook for navigation
     const navigate = useNavigate();
 
     // Stores filter settings
@@ -37,14 +36,33 @@ export default function Climbs({ climbs, setClimbs }) {
     }, []);
 
     /**
-     * Handles deletion of climb document in Firestore by document ID
-     * @param {string} climbId - document ID from Firestore of the specified climb
+     * Handles deletion of climb through backend API
+     * @param {string} climbId - document ID of specified climb
      */
     const handleDelete = async (climbId) => {
         try {
-            await deleteDoc(doc(db, "climbs", climbId));
+            const user = auth.currentUser
+            if (!user) {
+                alert("You must be logged in to delete a climb");
+                return;
+            }
+
+            const token = await user.getIdToken();
+            
+            const response = await fetch(`http://localhost:3000/api/climbs/${climbId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to delete climb');
+            }
+
             // Remove specified climb from local state
             setClimbs(prev => prev.filter(climb => climb.id !== climbId));
+
         } catch (error) {
             console.log("Failed to delete climb:", error);
         }
