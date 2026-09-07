@@ -14,7 +14,6 @@
     cursor: pointer;
     background-color: #00000071;
     border: 2px solid #ffffff54;
-    flex: 1 1 auto;
 }
 
 .climb-card:hover {
@@ -25,7 +24,7 @@
 .card-info {
     display: flex;
     align-items: flex-start;
-    gap: clamp(0.75rem, 5vw, 6rem);
+    gap: 4rem;
     flex: 1 1 auto;
     min-width: 0;
     overflow: hidden;
@@ -33,8 +32,7 @@
 
 .card-info p {
     margin: 0;
-    min-width: 0;
-    flex: 0 1 auto;
+    width: 6rem;
 }
 
 .card-info p strong {
@@ -123,7 +121,7 @@
     flex: 0 0 auto;
 }
 
-.delete-button {
+.delete-button, .edit-button {
     display: flex;
     align-items: center;
     justify-content: center;

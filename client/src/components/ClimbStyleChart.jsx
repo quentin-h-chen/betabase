@@ -32,7 +32,7 @@ export default function ClimbStyleChart({ climbs }) {
     const maxCount = Math.max(...data.map((d) => d.count));
     
     return(
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={240}>
             <RadarChart 
                 cx="50%" 
                 cy="50%" 

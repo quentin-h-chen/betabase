@@ -55,8 +55,8 @@
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    width: 95%;
+    gap: 0.5rem;
+    width: 90%;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.3);
     margin-top: 0.2rem;
 }
@@ -166,7 +166,7 @@
     background-color: #000000c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
-    width: 100%;
+    width: 50%;
 }
 
 .climbs-per-gym-chart {
@@ -177,7 +177,7 @@
     background-color: #000000c9;
     border-radius: 10px;
     border: 2px solid #ffffff38;
-    width: 70%;
+    width: 50%;
     overflow-y: auto;
     overflow-x: hidden;
 }

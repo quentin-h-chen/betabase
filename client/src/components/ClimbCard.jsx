@@ -18,9 +18,10 @@ import './ClimbCard.css';
  * - date: string
  * - note: string
  * - videoUrl: string
+ * - onEdit: function to edit climb card
  * - onDelete: function to delete climb card
  */
-export default function ClimbCard( { grade, type, attempts, location, date, note, videoUrl, onDelete } ) {
+export default function ClimbCard( { grade, type, attempts, location, date, note, videoUrl, onEdit, onDelete } ) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     /**
@@ -75,11 +76,24 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
                     <div className={`grade-badge ${gradeClass}`}>{grade}</div>
                     <p className='type-field'><strong>Type</strong> <span className="value">{type}</span></p>
                     <p className='attempts-field'><strong>Attempts</strong> <span className="value">{attempts}</span></p>
-                    <p className='location'><strong>Location</strong> <span className="value">{location.trim()}</span></p>
+                    <p className='location'><strong>Location</strong> <span className="value">{location.trim() || 'None'}</span></p>
                     <p className='date-field'><strong>Date</strong> <span className="value">{date}</span></p>
                     <p className='note'><strong>Note</strong> <span className="value">{note || 'None'}</span></p>
                 </div>
                 <div className='delete'>
+                    <button 
+                        className='edit-button' 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onEdit();
+                        }}
+                        aria-label="Edit Climb"
+                    >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                    </button>
                     <button 
                         className='delete-button' 
                         onClick={(e) => {

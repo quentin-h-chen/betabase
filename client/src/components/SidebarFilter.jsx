@@ -41,6 +41,26 @@ export default function SidebarFilter({ onFilter }) {
         });
     };
 
+    const handleReset = () => {
+        setMinGrade('');
+        setMaxGrade('');
+        setSelectedTypes([]);
+        setMinAttempts('');
+        setMaxAttempts('');
+        setFilterLocation('');
+        setFilterDate('');
+
+        onFilter({
+            minGrade: '',
+            maxGrade: '',   
+            types: [],
+            minAttempts: '',
+            maxAttempts: '',
+            location: '',
+            date: ''
+        }); 
+    };
+
     return (
         <div className='sidebar'>
             <h2>Filter</h2>
@@ -206,8 +226,9 @@ export default function SidebarFilter({ onFilter }) {
                     onChange={(e) => setFilterDate(e.target.value)}
                 />
             </div>
-            <div className='filter-group'>
-                <button className='filter-button' onClick={handleFilter}>Filter</button>
+            <div className='filter-buttons'>
+                <button className='filter-button' onClick={handleFilter}>Apply</button>
+                <button className='reset-filter-button' onClick={handleReset}>Reset</button>
             </div>
         </div>
     )

@@ -15,9 +15,12 @@ export default function ClimbsPerGymChart({climbs}) {
      * Extract gym name from full address
      */
     const gymCount = climbs.reduce((accumulator, climb) => {
-        const fullName = climb.location;
+    const fullName = climb.location;
 
-        // Extract name before '-'
+        if (!fullName) {
+            return accumulator;
+        }
+
         const shortName = fullName.split(' - ')[0].split(',')[0];
         accumulator[shortName] = (accumulator[shortName] || 0) + 1;
         return accumulator;
@@ -35,10 +38,10 @@ export default function ClimbsPerGymChart({climbs}) {
     }));
 
     // Enable chart height to be set dynamically
-    const chartHeight = data.length * 80;
+    const chartHeight = data.length * 60;
 
     return (
-        <ResponsiveContainer width="100%" height={chartHeight > 500 ? chartHeight : 500}>
+        <ResponsiveContainer width="100%" height={chartHeight > 250 ? chartHeight : 250}>
             <BarChart data={data} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" stroke="#888" />
             <XAxis 
@@ -51,8 +54,8 @@ export default function ClimbsPerGymChart({climbs}) {
                 dataKey="name" 
                 type="category" 
                 stroke="white" 
-                width={'auto'}
-                tick={{ fontSize: window.innerWidth <= 768 ? 14 : 16 }}
+                width={150}
+                tick={{ fontSize: window.innerWidth <= 768 ? 10 : 15 }}
             />
             <Tooltip />
             <Bar dataKey="Climbs" fill="#946eecff" />

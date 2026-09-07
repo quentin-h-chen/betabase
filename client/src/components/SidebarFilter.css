@@ -83,11 +83,17 @@ input::placeholder{
     color: #929191;
 }
 
-.filter-button {
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.filter-button, .reset-filter-button {
     font-family: "Zen Dots", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 1rem;
-    width: 13rem;
+    width: 6rem;
     height: 2rem;
     color: black;
     background-color: #FFC60B;
@@ -95,9 +101,34 @@ input::placeholder{
     border-color: #FFC60B;
 }
 
+.filter-button {
+    background-color: #FFC60B;
+    border: 1px solid #FFC60B;
+    color: black;
+}
+
+.reset-filter-button {
+    background-color: transparent;
+    border: 1px solid #FFC60B;
+    color: white;
+}
+
+.filter-button,
+.reset-filter-button {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
 .filter-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.reset-filter-button:hover {
+    transform: scale(1.05);
+}
+
+.filter-button:active,
+.reset-filter-button:active {
+    transform: scale(0.98);
 }
 
 @media (max-width: 1680px) {

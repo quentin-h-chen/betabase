@@ -35,8 +35,16 @@ export default function AvgAttemptsPerGradeChart({climbs}) {
         };
     });
 
+    const gymCount = new Set(
+    climbs
+        .map(climb => climb.location)
+        .filter(location => location)
+    ).size;
+
+    const chartHeight = Math.max(250, gymCount * 60);
+
     return (
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={chartHeight}>
             <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" stroke='white' />
