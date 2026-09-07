@@ -67,10 +67,13 @@ export default function ProfileDropdown() {
     return (
         <div className="profile-dropdown">
             <img 
-                src={currentUser?.photoURL || "/default-pic.png" }
+                src={currentUser?.photoURL || "/default-pic.png"}
                 alt="profile" 
                 className="avatar"
-                onClick={() => setOpen(!open) } 
+                onError={(e) => {
+                    e.currentTarget.src = "/default-pic.png";
+                }}
+                onClick={() => setOpen(!open)} 
             />
             {open && (
                 <div className="dropdown-menu">
