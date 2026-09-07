@@ -12,11 +12,8 @@ export default function Analysis({ climbs }) {
 
     return (
         <div className='analysis-page'>
-            <div className='title-container'>
-                <h2>Analytics</h2>
-            </div>
             <div className='analysis-container'>
-               <h3 className='category-header'>Performance</h3>
+               <h3 className='category-header'>Performance Overview</h3>
                 <div className='personal-performance-container'>
                     <div className='climbing-level-chart'>
                         <h3 className='climbing-level-header'>
@@ -50,14 +47,18 @@ export default function Analysis({ climbs }) {
                         <ClimbStyleChart climbs={climbs} />
                     </div>
                 </div>
-                <h3 className='category-header'>Efficiency</h3>
+                
                 <div className='row-1'>
                     <div className='attempts-per-grade-chart'>
                         <p className='chart-header'>Average Number of Attempts Per Grade</p>
                         <AvgAttemptsPerGradeChart climbs={climbs} />
                     </div>
+                    <div className='climbs-per-gym-chart'>
+                        <p className='chart-header'>Number of Climbs Per Gym</p>
+                        <ClimbsPerGymChart climbs={climbs} />
+                    </div>
                 </div>
-                
+                {/*                 
                 <h3 className='category-header'>Location & Variety</h3>
                 <div className='row-3'>
                     <div className='climbs-per-gym-chart'>
@@ -69,7 +70,7 @@ export default function Analysis({ climbs }) {
                         <p className='chart-header'>Number of Climbs Per Type</p>
                         <ClimbsPerTypeChart climbs = {climbs} />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

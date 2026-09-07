@@ -32,7 +32,7 @@ export default function ClimbsPerGradeChart({climbs}) {
     }));
 
     return (
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={200}>
             <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" stroke='white'/>

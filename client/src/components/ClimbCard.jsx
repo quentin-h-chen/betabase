@@ -76,7 +76,7 @@ export default function ClimbCard( { grade, type, attempts, location, date, note
                     <div className={`grade-badge ${gradeClass}`}>{grade}</div>
                     <p className='type-field'><strong>Type</strong> <span className="value">{type}</span></p>
                     <p className='attempts-field'><strong>Attempts</strong> <span className="value">{attempts}</span></p>
-                    <p className='location'><strong>Location</strong> <span className="value">{location.trim()}</span></p>
+                    <p className='location'><strong>Location</strong> <span className="value">{location.trim() || 'None'}</span></p>
                     <p className='date-field'><strong>Date</strong> <span className="value">{date}</span></p>
                     <p className='note'><strong>Note</strong> <span className="value">{note || 'None'}</span></p>
                 </div>
