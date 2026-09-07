@@ -3,7 +3,6 @@ import cors from 'cors';
 import { db, auth } from './firebaseAdmin.js';
 
 const app = express();
-const PORT = 3000;
 
 app.use(cors({
     origin: 'http://localhost:5173'
@@ -147,6 +146,11 @@ app.delete('/api/climbs/:id', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`BFF running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(3000, () => {
+        console.log('BFF running on http://localhost:3000');
+    });
+}
+
+
+export default app;
