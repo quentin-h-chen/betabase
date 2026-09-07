@@ -41,7 +41,7 @@ export default function EditClimb({ onEditClimb }) {
             const token = await user.getIdToken();
 
             const response = await fetch(
-                `http://localhost:3000/api/climbs/${climb.id}`,
+                `https://betabase-server.vercel.app/api/climbs/${climb.id}`,
                 {
                     method: 'PATCH',
                     headers: {

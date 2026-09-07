@@ -49,7 +49,7 @@ export default function Climbs({ climbs, setClimbs }) {
 
             const token = await user.getIdToken();
             
-            const response = await fetch(`http://localhost:3000/api/climbs/${climbId}`, {
+            const response = await fetch(`https://betabase-server.vercel.app/api/climbs/${climbId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

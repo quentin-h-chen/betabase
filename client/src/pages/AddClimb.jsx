@@ -40,7 +40,7 @@ export default function AddClimb({ onAddClimb }) {
 
         try {
             const token = await user.getIdToken();
-            const response = await fetch('http://localhost:3000/api/climbs', {
+            const response = await fetch('https://betabase-server.vercel.app/api/climbs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

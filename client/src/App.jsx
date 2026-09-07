@@ -21,7 +21,7 @@ export default function App() {
         if (user) {
           try { 
             const token = await user.getIdToken();
-            const response = await fetch('http://localhost:3000/api/climbs', {
+            const response = await fetch('https://betabase-server.vercel.app/api/climbs', {
               headers: {
                 'Authorization': `Bearer ${token}`
               }
