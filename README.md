@@ -7,7 +7,7 @@
 - Firebase Authentication for personalized user experience
 - Google Maps API integration for location input and filtering
 - Filter your climbs by:
-    - Grade (VB-V17)
+    - Grade (V0-V17)
     - Type (Overhang, Roof, Slab)
     - Number of Attempts
     - Gym Location
@@ -17,7 +17,8 @@
 
 
 ## Tech Stack
-- React.js, Vite
+- React, Vite
+- Node.js, Express
 - HTML/CSS
 - Firebase (auth and firestore)
 - Google Maps JavaScript API
