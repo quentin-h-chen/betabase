@@ -5,9 +5,11 @@ import { db, auth } from './firebaseAdmin.js';
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173',
-    'https://betabase-7a643.web.app/'
-}))
+    origin: [
+        'http://localhost:5173',
+        'https://betabase-7a643.web.app/'
+    ]
+}));
 app.use(express.json());
 
 // GET climbs request
